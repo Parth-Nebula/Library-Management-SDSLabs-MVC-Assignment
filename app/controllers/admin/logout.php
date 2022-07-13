@@ -13,7 +13,7 @@ class Logout {
         $session_status = \Controller\Admin\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
         if ( $session_status )
         {
-            \Controller\Admin\Session::End( $_POST["username"] ) ;
+            \Controller\Admin\Session::destroy( $_POST["username"] ) ;
             echo \View\Loader::make()->render
             (  
                 "templates/user/Logoutsuccessful.twig" ,
