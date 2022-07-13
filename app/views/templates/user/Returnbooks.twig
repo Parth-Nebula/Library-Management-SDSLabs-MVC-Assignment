@@ -1,0 +1,28 @@
+{% extends "templates/1b__userbase.twig" %}
+{% block title %}
+	{{- parent() -}}
+    Issued Books
+{% endblock %}
+{% block head %}
+	{{- parent() -}}
+    <link rel="stylesheet" type="text/css" href="/style/user/Returnbooksstyle.css">
+{% endblock %}
+{% block body %}
+	{{- parent() -}}
+        <div id="tableDiv">
+            <table id="booksTable">
+            </table>
+        </div>
+        <form class="back" action="/goTouserPortal" method="POST" >
+            <input type="text" id="username" name="username" value="" style="display:none">
+            <input type="text" id="tempPassword" name="temppassword" value="" style="display:none">
+            <input type="submit" class="backButton" value="Back">
+        </form>
+{% endblock %}
+{% block bottom %}
+	{{- parent() -}}
+    <script>
+        dat = {{ userReturnbooks|json_encode|raw }} ;
+    </script>
+    <script src="script/user/Returnbooksscript.js"></script>
+{% endblock %}

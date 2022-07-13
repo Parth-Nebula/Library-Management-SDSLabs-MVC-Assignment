@@ -1,0 +1,21 @@
+{
+    
+    "require": 
+    
+    {
+        
+        "torophp/torophp": "dev-master",
+        
+        "twig/twig": "^3.0"
+        
+    } ,
+    
+    "autoload": 
+    
+    {
+        
+        "classmap": ["app"]
+        
+    }
+    
+}

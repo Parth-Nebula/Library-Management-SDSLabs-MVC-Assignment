@@ -1,0 +1,57 @@
+{% extends "templates/1a__adminbase.twig" %}
+{% block title %}
+	{{- parent() -}}
+    Home
+{% endblock %}
+{% block head %}
+	{{- parent() -}}
+    <link rel="stylesheet" type="text/css" href="/style/admin/Portalstyle.css">
+{% endblock %}
+{% block body %}
+	{{- parent() -}}
+    <div class="box">
+        <form action="/goToadminRequestissuespage" method="POST">
+            <input type="text" class="username" name="username" value="" style="display:none">
+            <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
+            <input type="submit" class="issueButton" value="Issue Requests">
+        </form>
+        <form action="/goToadminRequestadminspage" method="POST">
+            <input type="text" class="username" name="username" value="" style="display:none">
+            <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
+            <input type="submit" class="adminButton" value="Admin Requests">
+        </form>
+    </div>
+    <div class="box">
+        <form action="/goToadminBooksgivepage" method="POST">
+            <input type="text" class="username" name="username" value="" style="display:none">
+            <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
+            <input type="submit" class="giveButton" value="Give Books">
+        </form>
+        <form action="/goToadminBookstakepage" method="POST">
+            <input type="text" class="username" name="username" value="" style="display:none">
+            <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
+            <input type="submit" class="takeButton" value="Take Books">
+        </form>
+    </div>
+    <div class="box">
+        <form action="/goToadminBooksaddpage" method="POST">
+            <input type="text" class="username" name="username" value="" style="display:none">
+            <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
+            <input type="submit" class="addButton" value="Add Books">
+        </form>
+        <form action="/goToadminBooksremovepage" method="POST">
+            <input type="text" class="username" name="username" value="" style="display:none">
+            <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
+            <input type="submit" class="removeButton" value="Remove Books">
+        </form>
+    </div>
+    <form action="/logoutAdmin" method="POST">
+        <input type="text" class="username" name="username" value="" style="display:none">
+        <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
+        <input type="submit" class="logoutButton" value="Logout">
+    </form>
+{% endblock %}
+{% block bottom %}
+	{{- parent() -}}
+    <script src="/script/admin/Portalscript.js"></script>
+{% endblock %}

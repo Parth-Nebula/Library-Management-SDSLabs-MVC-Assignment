@@ -1,0 +1,20 @@
+{% extends "templates/1b__userbase.twig" %}
+{% block title %}
+	{{- parent() -}}
+    Welcome
+{% endblock %}
+{% block head %}
+	{{- parent() -}}
+    <link rel="stylesheet" type="text/css" href="/style/user/Registrationsuccessfulstyle.css">
+{% endblock %}
+{% block body %}
+	{{- parent() -}}
+        <center>
+            <div class="spaceInusername">
+                Registration Successful !
+            </div>
+        </center>    
+        <form class="home" action="/goTouserLoginpage" method="GET" >
+            <input type="submit" class="backButton" value="Back">
+        </form>
+{% endblock %}

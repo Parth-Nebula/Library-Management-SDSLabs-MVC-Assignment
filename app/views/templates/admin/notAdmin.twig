@@ -1,0 +1,20 @@
+{% extends "templates/1a__adminbase.twig" %}
+{% block title %}
+	{{- parent() -}}
+    Ohh noooooooooo !1!!
+{% endblock %}
+{% block head %}
+	{{- parent() -}}
+    <link rel="stylesheet" type="text/css" href="/style/admin/wrongPasswordstyle.css">
+{% endblock %}
+{% block body %}
+	{{- parent() -}}
+        <center>
+            <div class="spaceInusername">
+                Admin does not exist !
+            </div>
+        </center>    
+        <form class="home" action="/goToadminLoginpage" method="GET" >
+            <input type="submit" class="backButton" value="Back">
+        </form>
+{% endblock %}

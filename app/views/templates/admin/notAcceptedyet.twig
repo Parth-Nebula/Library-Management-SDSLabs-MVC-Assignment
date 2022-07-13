@@ -1,0 +1,20 @@
+{% extends "templates/1a__adminbase.twig" %}
+{% block title %}
+	{{- parent() -}}
+    Ohh noooooooooo !1!!
+{% endblock %}
+{% block head %}
+	{{- parent() -}}
+    <link rel="stylesheet" type="text/css" href="/style/admin/notAcceptedyetstyle.css">
+{% endblock %}
+{% block body %}
+	{{- parent() -}}
+        <center>
+            <div class="spaceInusername">
+                Your request to be an Admin has not been accepted yet !
+            </div>
+        </center>    
+        <form class="home" action="/goToadminRegisterpage" method="GET" >
+            <input type="submit" class="backButton" value="Back">
+        </form>
+{% endblock %}

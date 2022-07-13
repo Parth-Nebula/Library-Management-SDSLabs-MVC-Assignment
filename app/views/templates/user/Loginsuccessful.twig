@@ -1,0 +1,30 @@
+{% extends "templates/1b__userbase.twig" %}
+{% block title %}
+	{{- parent() -}}
+    Welcome
+{% endblock %}
+{% block head %}
+	{{- parent() -}}
+    <link rel="stylesheet" type="text/css" href="/style/user/Loginsuccessfulstyle.css">
+{% endblock %}
+{% block body %}
+	{{- parent() -}}
+        <div class="loginSuccessful">
+            Login Successful !
+        </div>
+        <div id="welcome">
+        </div>
+        <form class="next" action="/goTouserPortal" method="POST" >
+            <input type="text" id="username" name="username" value="" style="display:none">
+            <input type="text" id="tempPassword" name="temppassword" value="" style="display:none">
+            <input type="submit" class="nextButton" value="Next">
+        </form>
+{% endblock %}
+{% block bottom %}
+	{{- parent() -}}
+    <script>
+        const use = "{{ username }}" ;
+        const ran = "{{ tempPassword }}" ;
+    </script>
+    <script src="script/user/Loginsuccessfulscript.js"></script>
+{% endblock %}

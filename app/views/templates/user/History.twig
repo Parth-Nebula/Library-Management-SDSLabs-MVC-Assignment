@@ -1,0 +1,45 @@
+{% extends "templates/1b__userbase.twig" %}
+{% block title %}
+	{{- parent() -}}
+    History
+{% endblock %}
+{% block head %}
+	{{- parent() -}}
+    <link rel="stylesheet" type="text/css" href="/style/user/Historystyle.css">
+{% endblock %}
+{% block body %}
+	{{- parent() -}}
+    <div id="userInfo">
+        <center>
+            <div id="hiUser">
+            </div>
+        </center>
+        <br>
+        <center>
+            <div id="fineUser">
+            </div>
+        </center>
+        <br>
+        <center>
+            <div id="tableName">
+            </div>
+        </center>
+    </div>    
+    <div id="tableDiv">
+        <table id="booksTable">
+        </table>
+    </div>
+    <form class="back" action="/goTouserPortal" method="POST" >
+        <input type="text" id="username" name="username" value="" value="" style="display:none" >
+        <input type="text" id="tempPassword" name="temppassword" value="" style="display:none">
+        <input type="submit" class="backButton" value="Back">
+    </form>
+{% endblock %}
+{% block bottom %}
+	{{- parent() -}}
+    <script>
+        dat = {{ userinfo|json_encode|raw }};
+        datzenpen = {{ booksissued|json_encode|raw }};
+    </script>
+    <script src="script/user/Historyscript.js"></script>
+{% endblock %}

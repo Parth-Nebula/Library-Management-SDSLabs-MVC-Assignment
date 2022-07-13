@@ -1,0 +1,18 @@
+{% extends "templates/1b__userbase.twig" %}
+{% block title %}
+	{{- parent() -}}
+    Bye Bye
+{% endblock %}
+{% block head %}
+	{{- parent() -}}
+    <link rel="stylesheet" type="text/css" href="/style/user/Logoutsuccessfulstyle.css">
+{% endblock %}
+{% block body %}
+	{{- parent() -}}
+        <div class="loginSuccessful">
+            Logout Successful !
+        </div>
+        <form class="home" action="/goTouserLoginpage" method="GET" >
+            <input type="submit" class="homeButton" value="Home">
+        </form>
+{% endblock %}

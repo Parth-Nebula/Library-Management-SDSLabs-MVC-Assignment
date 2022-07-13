@@ -1,0 +1,28 @@
+{% extends "templates/1a__adminbase.twig" %}
+{% block title %}
+	{{- parent() -}}
+    Take Books
+{% endblock %}
+{% block head %}
+	{{- parent() -}}
+    <link rel="stylesheet" type="text/css" href="/style/admin/Takebooksstyle.css">
+{% endblock %}
+{% block body %}
+	{{- parent() -}}
+        <div id="tableDiv">
+            <table id="requestsTable">
+            </table>
+        </div>
+        <form class="back" action="/goToadminPortal" method="POST" >
+            <input type="text" id="username" name="username" value="" style="display:none">
+            <input type="text" id="tempPassword" name="temppassword" value="" style="display:none">
+            <input type="submit" class="backButton" value="Back">
+        </form>
+{% endblock %}
+{% block bottom %}
+	{{- parent() -}}
+    <script>
+        dat = {{ takebooks|json_encode|raw }};
+    </script>
+    <script src="script/admin/Takebooksscript.js"></script>
+{% endblock %}

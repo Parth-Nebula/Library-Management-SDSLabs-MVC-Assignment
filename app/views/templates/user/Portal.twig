@@ -1,0 +1,41 @@
+{% extends "templates/1b__userbase.twig" %}
+{% block title %}
+	{{- parent() -}}
+    Home
+{% endblock %}
+{% block head %}
+	{{- parent() -}}
+    <link rel="stylesheet" type="text/css" href="/style/user/Portalstyle.css">
+{% endblock %}
+{% block body %}
+	{{- parent() -}}
+    <form action="/goTouserRequestbookspage" method="POST">
+        <input type="text" class="username" name="username" value="" style="display:none">
+        <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
+        <input type="submit" class="requestButton" value="Request Books">
+    </form>
+     <form action="/goTouserRequestedbookspage" method="POST">
+        <input type="text" class="username" name="username" value="" style="display:none">
+        <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
+        <input type="submit" class="requestedButton" value="Requested Books">
+    </form>
+    <form action="/goTouserReturnbookspage" method="POST">
+        <input type="text" class="username" name="username" value="" style="display:none">
+        <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
+        <input type="submit" class="returnButton" value="Return Books">
+    </form>
+    <form action="/goTouserHistorypage" method="POST">
+        <input type="text" class="username" name="username" value="" style="display:none">
+        <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
+        <input type="submit" class="historyButton" value="History & Status">
+    </form>
+    <form action="/logoutUser" method="POST">
+        <input type="text" class="username" name="username" value="" style="display:none">
+        <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
+        <input type="submit" class="logoutButton" value="Logout">
+    </form>
+{% endblock %}
+{% block bottom %}
+	{{- parent() -}}
+    <script src="/script/user/Portalscript.js"></script>
+{% endblock %}
