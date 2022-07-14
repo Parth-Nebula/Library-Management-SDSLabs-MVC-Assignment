@@ -1,7 +1,7 @@
-document.getElementById("hiUser").innerHTML = "hi " + dat.username;
-document.getElementById("fineUser").innerHTML = "Your Fine is " + dat.fine;
+document.getElementById("hiUser").innerHTML = "hi " + data_one.username;
+document.getElementById("fineUser").innerHTML = "Your Fine is " + data_one.fine;
 document.getElementById("tableName").innerHTML = "Issue History" ;
-let listOfrequests = datzenpen;
+let list_of_requests = data_two;
 let table = document.getElementById("booksTable");
 let row;
 let cell1;
@@ -26,7 +26,7 @@ cell3.innerHTML = "Accept Date";
 cell4.innerHTML = "Issue Date" ;
 cell5.innerHTML = "Return Date";
 var javdate;
-for ( let i = 0 ; i < listOfrequests.length ; i++)
+for ( let i = 0 ; i < list_of_requests.length ; i++)
     {
     row = table.insertRow(i+1);
     cell1 = row.insertCell(0);
@@ -39,14 +39,14 @@ for ( let i = 0 ; i < listOfrequests.length ; i++)
     cell4.style = "padding: 1vw; width: 27vw;" ;
     cell5 = row.insertCell(4);
     cell5.style = "padding: 1vw; width: 27vw;" ;
-    cell1.innerHTML = listOfrequests[i].title;
-    javaDate = new Date(listOfrequests[i].requestdate);
+    cell1.innerHTML = list_of_requests[i].title;
+    javaDate = new Date(list_of_requests[i].requestdate);
     cell2.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
-    javaDate = new Date(listOfrequests[i].acceptdate);
+    javaDate = new Date(list_of_requests[i].acceptdate);
     cell3.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
-    javaDate = new Date(listOfrequests[i].issuedate);
+    javaDate = new Date(list_of_requests[i].issuedate);
     cell4.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
-    javaDate = new Date(listOfrequests[i].returndate);
+    javaDate = new Date(list_of_requests[i].returndate);
     cell5.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
     }
 document.getElementById("username").defaultValue = sessionStorage.getItem("username");

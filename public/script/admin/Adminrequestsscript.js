@@ -1,7 +1,5 @@
-let listOfrequests = dat;
-let lengthOflistOfrequests = listOfrequests.length ;
-let listOfadmins = datzenpen;
-let lengthOflistOfadmins = listOfadmins.length ;
+let list_of_requests = data_one;
+let list_of_admins = data_two;
 let table = document.getElementById("booksTable");
 let row;
 let cell1;
@@ -15,7 +13,7 @@ cell2.style = "padding: 1vw; width: 27vw; font-size: 2.4vw;";
 cell3 = row.insertCell(2);
 cell3.style = "padding: 1vw; width: 27vw; font-size: 2.4vw;";
 cell1.innerHTML = "Username";
-for (let i = 0 ; i < lengthOflistOfrequests ; i++)
+for (let i = 0 ; i < list_of_requests.length ; i++)
 {
     row = table.insertRow(i+1);
     cell1 = row.insertCell(0);
@@ -24,11 +22,11 @@ for (let i = 0 ; i < lengthOflistOfrequests ; i++)
     cell2.style = "padding: 1vw; width: 27vw;" ;
     cell3 = row.insertCell(2);
     cell3.style = "padding: 1vw; width: 27vw;" ;
-    cell1.innerHTML = listOfrequests[i].username;
+    cell1.innerHTML = list_of_requests[i].username;
     check = 0
-    for (let j = 0 ; j < lengthOflistOfadmins ; j++)
+    for (let j = 0 ; j < list_of_admins.length ; j++)
     {
-        if (listOfrequests[i].username == listOfadmins[j].username)
+        if (list_of_requests[i].username == list_of_admins[j].username)
         {
             check = 1;
             break;
@@ -37,12 +35,12 @@ for (let i = 0 ; i < lengthOflistOfrequests ; i++)
     if (check)
     {
         cell2.innerHTML = "Username Taken";
-        cell3.innerHTML = "  <form action='/approveAnadmin' method='POST'>  <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='adminUsername' name='adminusername' value='" + listOfrequests[i].username + "' style='display:none'> <input type='text' class='action' name='action' value = 2 style='display:none'> <input type='submit' class='approveButton' value='Deny'> </form>  ";
+        cell3.innerHTML = "  <form action='/approveAnadmin' method='POST'>  <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='adminUsername' name='adminusername' value='" + list_of_requests[i].username + "' style='display:none'> <input type='text' class='action' name='action' value = 2 style='display:none'> <input type='submit' class='approveButton' value='Deny'> </form>  ";
     }
     else
     {
-        cell2.innerHTML = "  <form action='/approveAnadmin' method='POST'>  <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='adminUsername' name='adminusername' value='" + listOfrequests[i].username + "' style='display:none'> <input type='text' class='action' name='action' value = 1 style='display:none'> <input type='submit' class='approveButton' value='Approve'> </form>  ";
-        cell3.innerHTML = "  <form action='/approveAnadmin' method='POST'>  <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='adminUsername' name='adminusername' value='" + listOfrequests[i].username + "' style='display:none'> <input type='text' class='action' name='action' value = 2 style='display:none'> <input type='submit' class='approveButton' value='Deny'> </form>  ";
+        cell2.innerHTML = "  <form action='/approveAnadmin' method='POST'>  <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='adminUsername' name='adminusername' value='" + list_of_requests[i].username + "' style='display:none'> <input type='text' class='action' name='action' value = 1 style='display:none'> <input type='submit' class='approveButton' value='Approve'> </form>  ";
+        cell3.innerHTML = "  <form action='/approveAnadmin' method='POST'>  <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='adminUsername' name='adminusername' value='" + list_of_requests[i].username + "' style='display:none'> <input type='text' class='action' name='action' value = 2 style='display:none'> <input type='submit' class='approveButton' value='Deny'> </form>  ";
     }
 }
 document.getElementById("username").defaultValue = sessionStorage.getItem("username");

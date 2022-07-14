@@ -22,9 +22,9 @@
 {% block bottom %}
 	{{- parent() -}}
     <script>
-        dat = {{ books|json_encode|raw }} ;
-        datzenpen = {{ requestsmade|json_encode|raw }};
-        datsan = {{ issuedbooks|json_encode|raw }} ;
+        data_one = {{ books|json_encode|raw }} ;
+        data_two = {{ requestsmade|json_encode|raw }};
+        data_three = {{ issuedbooks|json_encode|raw }} ;
     </script>
     <script src="script/user/Requestbooksscript.js"></script>
 {% endblock %}

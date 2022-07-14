@@ -1,5 +1,4 @@
-let listOfbooks = dat;
-let lengthOflistOfbooks = listOfbooks.length ;
+let list_of_books = data_one;
 let table = document.getElementById("booksTable");
 let row;
 let cell1;
@@ -23,7 +22,7 @@ cell2.innerHTML = "Requested on" ;
 cell3.innerHTML = "Accepted on" ;
 cell4.innerHTML = "Issued on" ;
 var javadate ; 
-for (let i = 0 ; i < lengthOflistOfbooks ; i++)
+for (let i = 0 ; i < list_of_books.length ; i++)
 {
     row = table.insertRow(i+1);
     cell1 = row.insertCell(0);
@@ -36,16 +35,16 @@ for (let i = 0 ; i < lengthOflistOfbooks ; i++)
     cell4.style = "padding: 1vw; width: 27vw;";
     cell5 = row.insertCell(4);
     cell5.style = "padding: 1vw; width: 27vw;";
-    cell1.innerHTML = listOfbooks[i].title;
-    javaDate = new Date(listOfbooks[i].requestdate);
+    cell1.innerHTML = list_of_books[i].title;
+    javaDate = new Date(list_of_books[i].requestdate);
     cell2.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
-    javaDate = new Date(listOfbooks[i].acceptdate);
+    javaDate = new Date(list_of_books[i].acceptdate);
     cell3.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
-    javaDate = new Date(listOfbooks[i].issuedate);
+    javaDate = new Date(list_of_books[i].issuedate);
     cell4.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
-    if ( listOfbooks[i].returndate == null)
+    if ( list_of_books[i].returndate == null)
     {
-        cell5.innerHTML = " <form action='/makeAreturn' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='title' name='title' value='" + listOfbooks[i].title + "' style='display:none'> <input type='submit' class='returnButton' value='Return'> </form> ";
+        cell5.innerHTML = " <form action='/makeAreturn' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='title' name='title' value='" + list_of_books[i].title + "' style='display:none'> <input type='submit' class='returnButton' value='Return'> </form> ";
     }
     else
     {

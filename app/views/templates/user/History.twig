@@ -38,8 +38,8 @@
 {% block bottom %}
 	{{- parent() -}}
     <script>
-        dat = {{ userinfo|json_encode|raw }};
-        datzenpen = {{ booksissued|json_encode|raw }};
+        data_one = {{ userinfo|json_encode|raw }};
+        data_two = {{ booksissued|json_encode|raw }};
     </script>
     <script src="script/user/Historyscript.js"></script>
 {% endblock %}

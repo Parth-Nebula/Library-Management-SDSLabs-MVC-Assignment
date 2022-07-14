@@ -11,8 +11,8 @@ class Login
     }
     public function post() 
     {
-        $userdetails = \Model\User\Users::user_all($_POST["username"]) ;
-        if ( !$userdetails )
+        $user_details = \Model\User\Users::user_all($_POST["username"]) ;
+        if ( !$user_details )
         {
             echo \View\Loader::make()->render
             (
@@ -21,9 +21,9 @@ class Login
         }
         else 
         {
-            $password_and_salt = $_POST["password"] . $userdetails["salt"] ;
+            $password_and_salt = $_POST["password"] . $user_details["salt"] ;
             $hash = base64_encode ( hash ( "sha256" , $password_and_salt , true ) ) ;
-            if ( $userdetails["hashedsaltedpassword"] == $hash )
+            if ( $user_details["hashedsaltedpassword"] == $hash )
             {
                 $temp_password = \Controller\User\Session::Create($_POST["username"]);
                 echo \View\Loader::make()->render

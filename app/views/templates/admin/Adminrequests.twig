@@ -22,8 +22,8 @@
 {% block bottom %}
 	{{- parent() -}}
     <script>
-        dat = {{ requests|json_encode|raw }};
-        datzenpen = {{ admins|json_encode|raw }};
+        data_one = {{ requests|json_encode|raw }};
+        data_two = {{ admins|json_encode|raw }};
     </script>
     <script src="script/admin/Adminrequestsscript.js"></script>
 {% endblock %}

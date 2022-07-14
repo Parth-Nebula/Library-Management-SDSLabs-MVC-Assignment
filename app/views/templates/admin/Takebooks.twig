@@ -22,7 +22,7 @@
 {% block bottom %}
 	{{- parent() -}}
     <script>
-        dat = {{ takebooks|json_encode|raw }};
+        data_one = {{ takebooks|json_encode|raw }};
     </script>
     <script src="script/admin/Takebooksscript.js"></script>
 {% endblock %}

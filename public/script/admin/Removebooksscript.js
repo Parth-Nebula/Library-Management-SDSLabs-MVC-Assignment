@@ -1,5 +1,4 @@
-let listOfbooks = dat;
-let lengthOflistOfbooks = listOfbooks.length ;
+let list_of_books = data_one;
 let table = document.getElementById("booksTable");
 let row;
 let cell1;
@@ -18,7 +17,7 @@ cell4.style = "padding: 1vw; width: 27vw; font-size: 2.4vw;";
 cell1.innerHTML = "Title";
 cell2.innerHTML = "Total" ;
 cell3.innerHTML = "Available";
-for (let i = 0 ; i < lengthOflistOfbooks ; i++)
+for (let i = 0 ; i < list_of_books.length ; i++)
 {
     row = table.insertRow(i+1);
     cell1 = row.insertCell(0);
@@ -29,10 +28,10 @@ for (let i = 0 ; i < lengthOflistOfbooks ; i++)
     cell3.style = "padding: 1vw; width: 27vw;" ;
     cell4 = row.insertCell(3);
     cell4.style = "padding: 1vw; width: 27vw;" ;
-    cell1.innerHTML = listOfbooks[i].title;
-    cell2.innerHTML = listOfbooks[i].quantity;
-    cell3.innerHTML = listOfbooks[i].quantityavailable;
-    cell4.innerHTML = "  <form action='/removeAbook' method='POST'> <div class='lineBox'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + listOfbooks[i].title + "' style='display:none'> <input type='text' class='quantBox' name=quantityfilled> <input type='submit' class='removeButton' value='Remove'> </div> </form>  ";
+    cell1.innerHTML = list_of_books[i].title;
+    cell2.innerHTML = list_of_books[i].quantity;
+    cell3.innerHTML = list_of_books[i].quantityavailable;
+    cell4.innerHTML = "  <form action='/removeAbook' method='POST'> <div class='lineBox'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_books[i].title + "' style='display:none'> <input type='text' class='quantBox' name=quantityfilled> <input type='submit' class='removeButton' value='Remove'> </div> </form>  ";
 }
 document.getElementById("username").defaultValue = sessionStorage.getItem("username");
 document.getElementById("tempPassword").defaultValue = sessionStorage.getItem("tempPassword");

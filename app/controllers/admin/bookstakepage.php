@@ -10,8 +10,8 @@ class BooksTakePage {
     }
     public function post() 
     {   
-        $sessionstatus = \Controller\Admin\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
-        if ( $sessionstatus )
+        $session_status = \Controller\Admin\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        if ( $session_status )
         {
             $return_requests = \Model\Admin\ReturnRequests::all() ; 
             echo \View\Loader::make()->render

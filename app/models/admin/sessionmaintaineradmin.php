@@ -2,11 +2,11 @@
 namespace Model\Admin ;
 class SessionMaintainerAdmin 
 {
-    public static function insert ( $adminname , $someRandomhash , $someRandomsalt )
+    public static function insert ( $adminname , $some_random_hash , $some_random_salt )
     {
         $db = \DB::get_instance();
         $stmt = $db->prepare("INSERT INTO sessionmaintaineradmin (username, hashedsaltedtemppassword, salt) values ( ? , ? , ? ) " ) ;
-        $stmt->execute([ $adminname , $someRandomhash , $someRandomsalt ]) ;
+        $stmt->execute([ $adminname , $some_random_hash , $some_random_salt ]) ;
     }
     public static function admin_all ( $adminname )
     {

@@ -22,7 +22,7 @@
 {% block bottom %}
 	{{- parent() -}}
     <script>
-        dat = {{ givablebooks|json_encode|raw }};
+        data_one = {{ givablebooks|json_encode|raw }};
     </script>
     <script src="script/admin/Givebooksscript.js"></script>
 {% endblock %}

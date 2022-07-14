@@ -1,9 +1,6 @@
-let listOfbooks = dat;
-let lengthOflistOfbooks = listOfbooks.length ;
-let listOfissueRequests = datzenpen;
-let lengthOflistOfissueRequests = listOfissueRequests.length ;
-let listOfissuedBooks = datsan;
-let lengthOflistOfissuedBooks = listOfissuedBooks.length ;
+let list_of_books = data_one;
+let list_of_issue_requests = data_two;
+let list_of_issued_books = data_three;
 let table = document.getElementById("booksTable");
 let row;
 let cell1;
@@ -23,7 +20,7 @@ cell1.innerHTML = "Title";
 cell2.innerHTML = "Total" ;
 cell3.innerHTML = "Available";
 cell4.innerHTML = "Request";
-for (let i = 0 ; i < lengthOflistOfbooks ; i++)
+for (let i = 0 ; i < list_of_books.length ; i++)
 {
     row = table.insertRow(i+1);
     cell1 = row.insertCell(0);
@@ -34,13 +31,13 @@ for (let i = 0 ; i < lengthOflistOfbooks ; i++)
     cell3.style = "padding: 1vw; width: 27vw;" ;
     cell4 = row.insertCell(3);
     cell4.style = "padding: 1vw; width: 27vw;" ;
-    cell1.innerHTML = listOfbooks[i].title;
-    cell2.innerHTML = listOfbooks[i].quantity;
-    cell3.innerHTML = listOfbooks[i].quantityavailable;
+    cell1.innerHTML = list_of_books[i].title;
+    cell2.innerHTML = list_of_books[i].quantity;
+    cell3.innerHTML = list_of_books[i].quantityavailable;
     let check = 0 ;
-    for (let j = 0 ; j < lengthOflistOfissueRequests ; j++)
+    for (let j = 0 ; j < list_of_issue_requests.length ; j++)
     {
-        if (listOfissueRequests[j].username == sessionStorage.getItem("username") && listOfissueRequests[j].title == listOfbooks[i].title)
+        if (list_of_issue_requests[j].username == sessionStorage.getItem("username") && list_of_issue_requests[j].title == list_of_books[i].title)
         {
             check = 1 ;
             break;
@@ -48,9 +45,9 @@ for (let i = 0 ; i < lengthOflistOfbooks ; i++)
     }
     if (!(check))
     {
-        for (let j = 0 ; j < lengthOflistOfissuedBooks ; j++)
+        for (let j = 0 ; j < list_of_issued_books.length ; j++)
             {
-                if (listOfissuedBooks[j].username == sessionStorage.getItem("username") &&  listOfissuedBooks[j].title == listOfbooks[i].title)
+                if (list_of_issued_books[j].username == sessionStorage.getItem("username") &&  list_of_issued_books[j].title == list_of_books[i].title)
                 {
                     check = 2 ;
                     break;
@@ -67,7 +64,7 @@ for (let i = 0 ; i < lengthOflistOfbooks ; i++)
     }
     else
     {
-        cell4.innerHTML = " <form action='/makeArequest' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + listOfbooks[i].title + "' style='display:none'> <input type='submit' class='requestButton' value='Request'> </form> ";
+        cell4.innerHTML = " <form action='/makeArequest' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_books[i].title + "' style='display:none'> <input type='submit' class='requestButton' value='Request'> </form> ";
     }
 }
 document.getElementById("username").defaultValue = sessionStorage.getItem("username");

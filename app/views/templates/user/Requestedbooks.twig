@@ -22,7 +22,7 @@
 {% block bottom %}
 	{{- parent() -}}
     <script>
-        dat = {{ requestsmade|json_encode|raw }} ;
+        data_one = {{ requestsmade|json_encode|raw }} ;
     </script>
     <script src="script/user/Requestedbooksscript.js"></script>
 {% endblock %}

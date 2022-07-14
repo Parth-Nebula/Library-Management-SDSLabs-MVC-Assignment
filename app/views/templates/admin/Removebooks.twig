@@ -22,7 +22,7 @@
 {% block bottom %}
 	{{- parent() -}}
     <script>
-        dat = {{ books|json_encode|raw }};
+        data_one = {{ books|json_encode|raw }};
     </script>
     <script src="script/admin/Removebooksscript.js"></script>
 {% endblock %}

@@ -10,16 +10,16 @@ class Books
         $rows = $stmt->fetchAll();
         return $rows;
     }
-    public static function book_update_quantityavailableplusone( $booktitle )
+    public static function book_update_quantityavailableplusone( $book_title )
     {
         $db = \DB::get_instance();
         $stmt = $db->prepare("UPDATE books SET quantityavailable = quantityavailable + 1 WHERE title= ? ") ;
-        $stmt->execute([$booktitle]);
+        $stmt->execute([$book_title]);
     }
-     public static function pook_update_quantityavailableminusone( $booktitle )
+     public static function pook_update_quantityavailableminusone( $book_title )
     {
         $db = \DB::get_instance();
         $stmt = $db->prepare("UPDATE books SET quantityavailable = quantityavailable - 1 WHERE title= ? ") ;
-        $stmt->execute([$booktitle]);
+        $stmt->execute([$book_title]);
     }
 }
