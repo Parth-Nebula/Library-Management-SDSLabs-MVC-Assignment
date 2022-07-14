@@ -135,15 +135,17 @@ Note : an admin and a user account have already been made with username abc and 
 
 4. Import schema present in `schema/schema.sql` in your database.
 
-5. dump-autoload:
+5. install dependencies and dump-autoload:
 
     open command promt and cd into the repository
     
     then write 
     
     ```console
+    > composer install
     > composer dump-autoload -o
-
+    ```
+    
 6. Serve the public folder at any port (say 9001):
 
     open command promt and cd into the repository
@@ -155,9 +157,21 @@ Note : an admin and a user account have already been made with username abc and 
     > php -S localhost:9001
     ```
 
-Now you can run your sites by doing step 5 and going to http://localhost:9001 on any browser
 
-Note if you ever change the class structure ( add / delete / change existing classes ), step 5 will also have to be repeated
+Now you can run your sites by doing step 6 and going to http://localhost:9001 on any browser
+
+
+Note if you ever change the class structure ( add / delete / change existing classes ), you will have to
+
+open cmd 
+
+cd into the repository
+
+then run
+
+```console
+> composer dump-autoload -o
+```
 
 
 You can also setup virtual hosting by following the following steps
