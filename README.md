@@ -184,10 +184,10 @@ You can also setup virtual hosting by following the following steps
     
     run
 
+    ```console
     httpd -k install
-    
     httpd -k restart
-
+    ```
 
 2. Setup Apache config file
 
@@ -244,7 +244,19 @@ You can also setup virtual hosting by following the following steps
     ```console
     extension_dir = "C:\php\ext"
     ```
+5. Restart httpd
 
+    cd to bin folder in your Apache installation ( C:\Apache24\bin )
+    
+    run
+    
+    ```console
+    httpd -k restart
+    ```
+    
+    alternatively, you can restart Apache2.4 service from taskmanager
+   
+   
 Now you can run your sites by going to YourDesiredWebsiteName.org on any browser
 
 Note : an admin and a user account have already been made with username abc and password abc .
