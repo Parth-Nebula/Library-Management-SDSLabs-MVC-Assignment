@@ -30,19 +30,19 @@ class Books
         $statement = $db->prepare("UPDATE books SET quantity = quantity + ? WHERE title= ? ") ;
         $statement->execute( [ $quantity , $book_title ] ) ;
     }
-    public static function book_update_quantityavailable ( $book_title , $quantity )
+    public static function book_update_quantity_available ( $book_title , $quantity )
     {
         $db = \DB::get_instance();
         $statement = $db->prepare("UPDATE books SET quantityavailable = quantityavailable + ? WHERE title= ? ") ;
         $statement->execute( [ $quantity , $book_title ] );
     }
-    public static function book_update_quantityavailableplusone ( $book_title )
+    public static function book_update_quantity_available_plus_one ( $book_title )
     {
         $db = \DB::get_instance();
         $statement = $db->prepare("UPDATE books SET quantityavailable = quantityavailable + 1 WHERE title= ? ") ;
         $statement->execute([$book_title]);
     }
-    public static function book_update_quantityavailableminusone ( $book_title )
+    public static function book_update_quantity_available_minus_one ( $book_title )
     {
         $db = \DB::get_instance();
         $statement = $db->prepare("UPDATE books SET quantityavailable = quantityavailable - 1 WHERE title= ? ") ;

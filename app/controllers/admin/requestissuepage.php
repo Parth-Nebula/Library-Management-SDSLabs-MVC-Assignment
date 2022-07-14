@@ -13,7 +13,7 @@ class RequestIssuePage {
         $session_status = \Controller\Admin\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
         if ( $session_status )
         {
-            $requested_books_with_amount = \Model\Admin\Joins::issuerequests_books();
+            $requested_books_with_amount = \Model\Admin\Joins::issue_requests_books();
             echo \View\Loader::make()->render
             (  
                 "templates/admin/Issuesrequest.twig" ,

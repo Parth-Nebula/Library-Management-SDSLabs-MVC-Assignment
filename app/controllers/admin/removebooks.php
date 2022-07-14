@@ -17,7 +17,7 @@ class RemoveBooks {
              if ( $book["quantityavailable"] >= $_POST["quantityfilled"]  and  $book["quantity"] > $_POST["quantityfilled"] )
             {
                 \Model\Admin\Books::book_update_quantity ( $_POST["booktitle"] , "-".$_POST["quantityfilled"] ) ;
-                \Model\Admin\Books::book_update_quantityavailable ( $_POST["booktitle"] , "-".$_POST["quantityfilled"] ) ;
+                \Model\Admin\Books::book_update_quantity_available ( $_POST["booktitle"] , "-".$_POST["quantityfilled"] ) ;
             }
             else if ( $book["quantityavailable"] == $_POST["quantityfilled"]  and  $book["quantity"] == $_POST["quantityfilled"] )
             {

@@ -14,31 +14,31 @@ class ActOnARequest
         $session_status = \Controller\Admin\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
         if ( $session_status )
         {
-            $request = \Model\Admin\IssueRequests::clientbook_all( $_POST["clientname"] , $_POST["booktitle"] ) ;
+            $request = \Model\Admin\IssueRequests::client_book_all( $_POST["clientname"] , $_POST["booktitle"] ) ;
             if ( $request )
             {
                 if ( $_POST["action"] == 1 )
                 {
                     if ( $request["status"] == 2 or $request["status"] == 0 )
                     {
-                        \Model\Admin\Books::book_update_quantityavailableminusone( $_POST["booktitle"] ) ;
-                        \Model\Admin\IssueRequests::clientbook_update_statusone ( $_POST["clientname"] , $_POST["booktitle"] ) ;
+                        \Model\Admin\Books::book_update_quantity_available_minus_one( $_POST["booktitle"] ) ;
+                        \Model\Admin\IssueRequests::client_book_update_status_one ( $_POST["clientname"] , $_POST["booktitle"] ) ;
                     }
                 }
                 else if ( $_POST["action"] == 2)
                 {
                     if ( $request["status"] == 1 )
                     {
-                        \Model\Admin\Books::book_update_quantityavailableplusone( $_POST["booktitle"] ) ;
-                        \Model\Admin\IssueRequests::clientbook_update_statustwo ( $_POST["clientname"] , $_POST["booktitle"] ) ; 
+                        \Model\Admin\Books::book_update_quantity_available_plus_one( $_POST["booktitle"] ) ;
+                        \Model\Admin\IssueRequests::client_book_update_status_two ( $_POST["clientname"] , $_POST["booktitle"] ) ; 
                     }
                     if ( $request["status"] == 0 )
                     {
-                        \Model\Admin\IssueRequests::clientbook_update_statustwo ( $_POST["clientname"] , $_POST["booktitle"] ) ;
+                        \Model\Admin\IssueRequests::client_book_update_status_two ( $_POST["clientname"] , $_POST["booktitle"] ) ;
                     }
                 }
             }
-            $requested_books_with_amount = \Model\Admin\Joins::issuerequests_books();
+            $requested_books_with_amount = \Model\Admin\Joins::issue_requests_books();
             echo \View\Loader::make()->render
             (  
                 "templates/admin/Issuesrequest.twig" ,

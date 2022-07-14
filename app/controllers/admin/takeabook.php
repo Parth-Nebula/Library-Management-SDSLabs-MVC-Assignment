@@ -15,13 +15,13 @@ class TakeABook  {
         {
             if ( $_POST["action"] == 1 ) 
             {
-                $issue_data = \Model\Admin\Joins::issuerecords_returnrequests( $_POST["clientname"] , $_POST["booktitle"] ) ;
+                $issue_data = \Model\Admin\Joins::issue_records_return_requests( $_POST["clientname"] , $_POST["booktitle"] ) ;
                 if ( $issue_data )
                 {
                     \Model\Admin\History::insert( $issue_data["title"] , $issue_data["username"] , $issue_data["requestdate"] , $issue_data["acceptdate"] , $issue_data["issuedate"] , $issue_data["returndate"] ) ;
-                    \Model\Admin\IssueRecords::clientbook_delete ( $issue_data["username"] , $issue_data["title"] ) ;
-                    \Model\Admin\ReturnRequests::clientbook_delete ( $issue_data["username"] , $issue_data["title"] ) ;
-                    \Model\Admin\Books::book_update_quantityavailableplusone( $issue_data["title"] ) ;
+                    \Model\Admin\IssueRecords::client_book_delete ( $issue_data["username"] , $issue_data["title"] ) ;
+                    \Model\Admin\ReturnRequests::client_book_delete ( $issue_data["username"] , $issue_data["title"] ) ;
+                    \Model\Admin\Books::book_update_quantity_available_plus_one( $issue_data["title"] ) ;
                     $issue_date = new \DateTime($issue_data["issuedate"]);
                     $return_date = new \DateTime($issue_data["returndate"]);
                     $interval = $issue_date->diff($return_date);
@@ -42,7 +42,7 @@ class TakeABook  {
             }
             else if ( $_POST["action"] == 2 )
             {
-                \Model\Admin\ReturnRequests::clientbook_delete ( $_POST["clientname"] , $_POST["booktitle"] ) ;
+                \Model\Admin\ReturnRequests::client_book_delete ( $_POST["clientname"] , $_POST["booktitle"] ) ;
             }
             $return_requests = \Model\Admin\ReturnRequests::all() ; 
             echo \View\Loader::make()->render

@@ -10,10 +10,10 @@ class ReturnRequests
         $rows = $statement->fetchAll();
         return $rows;
     }
-    public static function clientbook_delete ( $clientname , $book_title )
+    public static function client_book_delete ( $client_name , $book_title )
     {
         $db = \DB::get_instance();
         $statement = $db->prepare("DELETE FROM returnrequests WHERE username = ? AND title = ? " ) ;
-        $statement->execute([$clientname , $book_title]);
+        $statement->execute([$client_name , $book_title]);
     }
 }

@@ -10,7 +10,7 @@ class IssueRequests
         $rows = $stmt->fetchAll();
         return $rows;
     }
-    public static function userbook_all( $username , $book_title )
+    public static function user_book_all( $username , $book_title )
     {
         $db = \DB::get_instance();
         $stmt = $db->prepare("SELECT * FROM issuerequests WHERE username = ? AND title = ? ");
@@ -24,7 +24,7 @@ class IssueRequests
         $stmt = $db->prepare(" INSERT INTO issuerequests (username, title, requestdate ) VALUES ( ? , ? , CURDATE() ) ");
         $stmt->execute([$username , $book_title]);
     }
-    public static function userbook_delete ( $username , $book_title )
+    public static function user_book_delete ( $username , $book_title )
     {
         $db = \DB::get_instance();
         $stmt = $db->prepare(" DELETE FROM issuerequests WHERE username = ? AND title = ? " );

@@ -18,7 +18,7 @@ class AddBooks {
             if ( $book )
             {
                 \Model\Admin\Books::book_update_quantity ( $_POST["booktitle"] , $_POST["quantity"] ) ;
-                \Model\Admin\Books::book_update_quantityavailable ( $_POST["booktitle"] , $_POST["quantity"] ) ;
+                \Model\Admin\Books::book_update_quantity_available ( $_POST["booktitle"] , $_POST["quantity"] ) ;
                 $success_status = "Successfully Added" ;
             }
             else
