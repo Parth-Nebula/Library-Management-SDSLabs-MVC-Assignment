@@ -168,6 +168,9 @@ then run
 > composer dump-autoload -o
 ```
 
+Note : an admin and a user account have already been made with username abc and password abc .
+
+
 
 You can also setup virtual hosting by following the following steps
 
