@@ -1,4 +1,4 @@
-{% extends "templates/1a__adminbase.twig" %}
+{% extends "templates/0__base.twig" %}
 {% block title %}
 	{{- parent() -}}
     Bye Bye
@@ -12,7 +12,7 @@
         <div class="loginSuccessful">
             Logout Successful !
         </div>
-        <form class="home" action="/goToadminLoginpage" method="GET" >
+        <form class="home" action="/goToAdminLoginPage" method="GET" >
             <input type="submit" class="homeButton" value="Home">
         </form>
 {% endblock %}

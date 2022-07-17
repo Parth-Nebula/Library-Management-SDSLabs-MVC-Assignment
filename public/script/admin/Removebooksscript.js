@@ -31,7 +31,7 @@ for (let i = 0 ; i < list_of_books.length ; i++)
     cell1.innerHTML = list_of_books[i].title;
     cell2.innerHTML = list_of_books[i].quantity;
     cell3.innerHTML = list_of_books[i].quantityavailable;
-    cell4.innerHTML = "  <form action='/removeAbook' method='POST'> <div class='lineBox'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_books[i].title + "' style='display:none'> <input type='text' class='quantBox' name=quantityfilled> <input type='submit' class='removeButton' value='Remove'> </div> </form>  ";
+    cell4.innerHTML = "  <form action='/removeABook' method='POST'> <div class='lineBox'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_books[i].title + "' style='display:none'> <input type='text' class='quantBox' name=quantityfilled> <input type='submit' class='removeButton' value='Remove'> </div> </form>  ";
 }
 document.getElementById("username").defaultValue = sessionStorage.getItem("username");
 document.getElementById("tempPassword").defaultValue = sessionStorage.getItem("tempPassword");

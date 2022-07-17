@@ -64,7 +64,7 @@ for (let i = 0 ; i < list_of_books.length ; i++)
     }
     else
     {
-        cell4.innerHTML = " <form action='/makeArequest' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_books[i].title + "' style='display:none'> <input type='submit' class='requestButton' value='Request'> </form> ";
+        cell4.innerHTML = " <form action='/makeARequest' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_books[i].title + "' style='display:none'> <input type='submit' class='requestButton' value='Request'> </form> ";
     }
 }
 document.getElementById("username").defaultValue = sessionStorage.getItem("username");

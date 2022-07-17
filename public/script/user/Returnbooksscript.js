@@ -44,7 +44,7 @@ for (let i = 0 ; i < list_of_books.length ; i++)
     cell4.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
     if ( list_of_books[i].returndate == null)
     {
-        cell5.innerHTML = " <form action='/makeAreturn' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='title' name='title' value='" + list_of_books[i].title + "' style='display:none'> <input type='submit' class='returnButton' value='Return'> </form> ";
+        cell5.innerHTML = " <form action='/makeAReturn' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='title' name='title' value='" + list_of_books[i].title + "' style='display:none'> <input type='submit' class='returnButton' value='Return'> </form> ";
     }
     else
     {

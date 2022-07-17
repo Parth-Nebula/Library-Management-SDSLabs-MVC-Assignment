@@ -1,4 +1,4 @@
-{% extends "templates/1b__userbase.twig" %}
+{% extends "templates/0__base.twig" %}
 {% block title %}
 	{{- parent() -}}
     Register
@@ -17,10 +17,10 @@
     </div>
     <div class="registerPortal">
         <div class="top">
-            <form action="/goTouserRegisterpage" method="GET">
+            <form action="/goToUserRegisterPage" method="GET">
                 <input type="submit" class="userButton" value="User">
             </form>    
-            <form action="/goToadminRegisterpage" method="GET">
+            <form action="/goToAdminRegisterPage" method="GET">
                 <input type="submit" class="adminButton" value="Admin">
             </form>
         </div>
@@ -36,7 +36,7 @@
         <div class="old">
             Already Registered ?
         </div>
-        <form action="/goTouserLoginpage" method="GET">
+        <form action="/goToUserLoginPage" method="GET">
             <input type="submit" class="loginButton" value="Login">
         </form>
     </div>

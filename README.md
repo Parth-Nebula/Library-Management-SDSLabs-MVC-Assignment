@@ -70,11 +70,12 @@ Note : an admin and a user account have already been made with username abc and 
     
     then uncomment the following lines by removing the leading ; from them
     
+    ```console
     extension=curl
     extension=gd
     extension=mbstring
     extension=pdo_mysql
-    
+    ```
     
     Now,
     
@@ -82,13 +83,9 @@ Note : an admin and a user account have already been made with username abc and 
     
     from there go to Environment Variables...
     
-    then click on Path
+    then go to Path -> Edit -> New
     
-    then edit
-    
-    then new
-    
-    then write C:\php
+    then write C:\php 
     
     and press ok
     
@@ -128,8 +125,6 @@ Note : an admin and a user account have already been made with username abc and 
     
     run it !
     
-
-    ```
     
 3. Edit `config/config.php` accordingly
 
@@ -235,7 +230,7 @@ You can also setup virtual hosting by following the following steps
     
     open it using any text editor
     
-    in it 
+    in it ,
     
     extension_dir should be equal to the path of the ext folder in your php installation instead of just "ext"
     
