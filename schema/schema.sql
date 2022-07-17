@@ -1,13 +1,13 @@
 -- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
--- Host: localhost    Database: lib
+-- Host: 127.0.0.1    Database: lib
 -- ------------------------------------------------------
 -- Server version	8.0.29
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -35,6 +35,7 @@ CREATE TABLE `adminrequests` (
 
 LOCK TABLES `adminrequests` WRITE;
 /*!40000 ALTER TABLE `adminrequests` DISABLE KEYS */;
+INSERT INTO `adminrequests` VALUES ('a','VSDY/0ipa/i1KaD1u6lkW6J6Hcw8sBtlWz04aGgjhHU=','76313079395');
 /*!40000 ALTER TABLE `adminrequests` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,6 +85,7 @@ CREATE TABLE `books` (
 
 LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
+INSERT INTO `books` VALUES ('Irodov',1000,1000),('Krotov',1000,1000),('Pathfinder',1000,1000),('R K Jain',1000,1000);
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -279,4 +281,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-12 15:52:25
+-- Dump completed on 2022-07-17 20:09:37
