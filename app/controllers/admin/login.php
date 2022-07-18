@@ -54,7 +54,7 @@ class Login
                     "templates/admin/Loginsuccessful.twig",
                     array
                     (
-                        "Username" => $_POST["Username"] ,
+                        "username" => $_POST["Username"] ,
                     )
                 );
             }
