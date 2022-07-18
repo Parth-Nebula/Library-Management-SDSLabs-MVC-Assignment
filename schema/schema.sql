@@ -21,12 +21,12 @@
 
 DROP TABLE IF EXISTS `AdminRequests`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `AdminRequests` (
   `Username` varchar(30) DEFAULT NULL,
   `HashedSaltedPassword` varchar(65) DEFAULT NULL,
   `Salt` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,13 +45,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Admins`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `Admins` (
   `Username` varchar(30) NOT NULL,
   `HashedSaltedPassword` varchar(65) DEFAULT NULL,
   `Salt` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`Username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,13 +70,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Books`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `Books` (
   `Title` varchar(30) NOT NULL,
   `Quantity` int DEFAULT NULL,
   `QuantityAvailable` int DEFAULT NULL,
   PRIMARY KEY (`Title`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +95,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `History`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `History` (
   `Title` varchar(30) DEFAULT NULL,
   `Username` varchar(30) DEFAULT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE `History` (
   `ReturnDate` date DEFAULT NULL,
   KEY `Username` (`Username`),
   CONSTRAINT `History_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +123,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `IssueRecords`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `IssueRecords` (
   `Title` varchar(30) DEFAULT NULL,
   `Username` varchar(30) DEFAULT NULL,
@@ -132,7 +132,7 @@ CREATE TABLE `IssueRecords` (
   `IssueDate` date DEFAULT NULL,
   KEY `Username` (`Username`),
   CONSTRAINT `IssueRecords_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,7 +150,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `IssueRequests`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `IssueRequests` (
   `Title` varchar(30) DEFAULT NULL,
   `Username` varchar(30) DEFAULT NULL,
@@ -159,7 +159,7 @@ CREATE TABLE `IssueRequests` (
   `ReplyDate` date DEFAULT NULL,
   KEY `Username` (`Username`),
   CONSTRAINT `IssueRequests_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -177,14 +177,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `ReturnRequests`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `ReturnRequests` (
   `Title` varchar(30) DEFAULT NULL,
   `Username` varchar(30) DEFAULT NULL,
   `ReturnDate` date DEFAULT NULL,
   KEY `Username` (`Username`),
   CONSTRAINT `ReturnRequests_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -202,14 +202,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `Users` (
   `Username` varchar(30) NOT NULL,
   `HashedSaltedPassword` varchar(65) DEFAULT NULL,
   `Salt` varchar(20) DEFAULT NULL,
   `Fine` int DEFAULT '0',
   PRIMARY KEY (`Username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
