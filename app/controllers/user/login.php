@@ -11,7 +11,7 @@ class Login
     }
     public function post() 
     {
-        $user_details = \Model\User\Users::user_all($_POST["username"]) ;
+        $user_details = \Model\User\Users::user_all($_POST["Username"]) ;
         if ( !$user_details )
         {
             echo \View\Loader::make()->render
@@ -21,18 +21,17 @@ class Login
         }
         else 
         {
-            $password_and_salt = $_POST["password"] . $user_details["salt"] ;
+            $password_and_salt = $_POST["Password"] . $user_details["Salt"] ;
             $hash = base64_encode ( hash ( "sha256" , $password_and_salt , true ) ) ;
-            if ( $user_details["hashedsaltedpassword"] == $hash )
+            if ( $user_details["HashedSaltedPassword"] == $hash )
             {
-                $temp_password = \Controller\User\Session::Create($_POST["username"]);
+                \Controller\User\Session::create($_POST["Username"]);
                 echo \View\Loader::make()->render
                 (
                     "templates/user/Loginsuccessful.twig",
                     array
                     (
-                        "username" => $_POST["username"] ,
-                        "tempPassword" => $temp_password ,
+                        "username" => $_POST["Username"] ,
                     )
                 );
             }

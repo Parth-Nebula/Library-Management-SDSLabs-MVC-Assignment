@@ -10,20 +10,20 @@ class AddBooks {
     }
     public function post() 
     {   
-        $session_status = \Controller\Admin\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\Admin\Session::check() ;
         $success_status = "" ;
         if ( $session_status )
         {
-            $book = \Model\Admin\Books::book_all ( $_POST["booktitle"] ) ;
+            $book = \Model\Admin\Books::book_all ( $_POST["BookTitle"] ) ;
             if ( $book )
             {
-                \Model\Admin\Books::book_update_quantity ( $_POST["booktitle"] , $_POST["quantity"] ) ;
-                \Model\Admin\Books::book_update_quantity_available ( $_POST["booktitle"] , $_POST["quantity"] ) ;
+                \Model\Admin\Books::book_update_quantity ( $_POST["BookTitle"] , $_POST["Quantity"] ) ;
+                \Model\Admin\Books::book_update_quantity_available ( $_POST["BookTitle"] , $_POST["Quantity"] ) ;
                 $success_status = "Successfully Added" ;
             }
             else
             {
-                \Model\Admin\Books::insert ( $_POST["booktitle"] , $_POST["quantity"] ) ;
+                \Model\Admin\Books::insert ( $_POST["BookTitle"] , $_POST["Quantity"] ) ;
                 $success_status = "Successfully Added" ;
             }
             echo \View\Loader::make()->render

@@ -39,40 +39,38 @@ for (let i = 0 ; i < list_of_requests.length ; i++)
     cell5.style = "padding: 1vw; width: 27vw;" ;
     cell6 = row.insertCell(5);
     cell6.style = "padding: 1vw; width: 27vw;" ;
-    cell1.innerHTML = list_of_requests[i].title;
-    cell2.innerHTML = list_of_requests[i].quantityavailable;
-    cell3.innerHTML = list_of_requests[i].username;
-    javaDate = new Date(list_of_requests[i].requestdate);
+    cell1.innerHTML = list_of_requests[i].Title;
+    cell2.innerHTML = list_of_requests[i].QuantityAvailable;
+    cell3.innerHTML = list_of_requests[i].Username;
+    javaDate = new Date(list_of_requests[i].RequestDate);
     cell4.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
-    if (list_of_requests[i].status == 0)
+    if (list_of_requests[i].Status == 0)
         {
-            if (list_of_requests[i].quantityavailable == 0)
+            if (list_of_requests[i].QuantitAvailable == 0)
             {
                 cell5.innerHTML = "Unavailable" ;
             }
             else
             {
-                cell5.innerHTML = " <form action='/actOnARequest' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_requests[i].title + "' style='display:none'> <input type='text' class='clientName' name='clientname' value='"+ list_of_requests[i].username + "' + style='display:none'> <input type='text' class='action' name='action' value=1 style='display:none'> <input type='submit' class='actButton' value='Accept'> </form> " ;
+                cell5.innerHTML = " <form action='/actOnARequest' method='POST'> <input type='text' class='bookTitle' name='BookTitle' value='" + list_of_requests[i].Title + "' style='display:none'> <input type='text' class='clientName' name='ClientName' value='"+ list_of_requests[i].Username + "' + style='display:none'> <input type='text' class='action' name='Action' value=1 style='display:none'> <input type='submit' class='actButton' value='Accept'> </form> " ;
             }
-            cell6.innerHTML = " <form action='/actOnARequest' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_requests[i].title + "' style='display:none'> <input type='text' class='clientName' name='clientname' value='"+ list_of_requests[i].username + "' + style='display:none'> <input type='text' class='action' name='action' value=2 style='display:none'> <input type='submit' class='actButton' value='Deny'> </form> " ;
+            cell6.innerHTML = " <form action='/actOnARequest' method='POST'> <input type='text' class='bookTitle' name='BookTitle' value='" + list_of_requests[i].Title + "' style='display:none'> <input type='text' class='clientName' name='ClientName' value='"+ list_of_requests[i].Username + "' + style='display:none'> <input type='text' class='action' name='Action' value=2 style='display:none'> <input type='submit' class='actButton' value='Deny'> </form> " ;
         }
-    else if (list_of_requests[i].status == 1)
+    else if (list_of_requests[i].Status == 1)
         {
             cell5.innerHTML = "Accepted";
-            cell6.innerHTML = " <form action='/actOnARequest' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_requests[i].title + "' style='display:none'> <input type='text' class='clientName' name='clientname' value='"+ list_of_requests[i].username + "' + style='display:none'> <input type='text' class='action' name='action' value=2 style='display:none'> <input type='submit' class='actButton' value='Deny'> </form> " ;
+            cell6.innerHTML = " <form action='/actOnARequest' method='POST'> <input type='text' class='bookTitle' name='BookTitle' value='" + list_of_requests[i].Title + "' style='display:none'> <input type='text' class='clientName' name='ClientName' value='"+ list_of_requests[i].Username + "' + style='display:none'> <input type='text' class='action' name='Action' value=2 style='display:none'> <input type='submit' class='actButton' value='Deny'> </form> " ;
         }
     else
         {
-            if (list_of_requests[i].quantityavailable == 0)
+            if (list_of_requests[i].QuantityAvailable == 0)
             {
                 cell5.innerHTML = "Unavailable" ;
             }
             else
             {
-                cell5.innerHTML = " <form action='/actOnARequest' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_requests[i].title + "' style='display:none'> <input type='text' class='clientName' name='clientname' value='"+ list_of_requests[i].username + "' + style='display:none'> <input type='text' class='action' name='action' value=1 style='display:none'> <input type='submit' class='actButton' value='Accept'> </form> " ;
+                cell5.innerHTML = " <form action='/actOnARequest' method='POST'> <input type='text' class='bookTitle' name='BookTitle' value='" + list_of_requests[i].Title + "' style='display:none'> <input type='text' class='clientName' name='ClientName' value='"+ list_of_requests[i].Username + "' + style='display:none'> <input type='text' class='action' name='Action' value=1 style='display:none'> <input type='submit' class='actButton' value='Accept'> </form> " ;
             }
             cell6.innerHTML = "Denied" ;
         }
 }
-document.getElementById("username").defaultValue = sessionStorage.getItem("username");
-document.getElementById("tempPassword").defaultValue = sessionStorage.getItem("tempPassword");

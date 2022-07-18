@@ -18,7 +18,7 @@
     > composer dump-autoload -o
     ```
 
-4. Edit `config/config.php` accordingly
+4. Rename `config\sample-config.php` as `config/config.php` and edit it accordingly
 
 5. Import schema present in `schema/schema.sql` in your database.
 
@@ -28,7 +28,15 @@
     > php -S localhost:8000
     ```
     
+    
+Also, instead of steps 2 - 6 you can alternatively run setup.sh in console to setup.
+
+```console
+> ./setup.sh
+```
+
 Note : an admin and a user account have already been made with username abc and password abc .
+
 
 
 ## Setup for Windows
@@ -117,6 +125,25 @@ Note : an admin and a user account have already been made with username abc and 
     ```
 
     a Syntax OK should appear
+    
+    
+    This next step in php installation is optional ( for more security )
+    
+    go to the folder of your php installation
+    
+    find php.ini file in it
+    
+    open it using any text editor
+    
+    in it ,
+    
+    session.use_trans_sid should be equal to the 1 instead of 0
+    
+    like 
+    
+    ```console
+    session.use_trans_sid = 1
+    ```
     
 2. Install composer ( if not already installed )
 
@@ -255,6 +282,6 @@ You can also setup virtual hosting by following the following steps
     alternatively, you can restart Apache2.4 service from taskmanager
    
    
-Now you can run your sites by going to YourDesiredWebsiteName.org on any browser
+Now you can run your site by going to YourDesiredWebsiteName.org on any browser
 
 Note : an admin and a user account have already been made with username abc and password abc .

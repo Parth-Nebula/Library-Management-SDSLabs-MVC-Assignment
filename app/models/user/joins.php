@@ -5,9 +5,12 @@ class Joins
     public static function issue_records_return_requests ( $username )
     {
         $db = \DB::get_instance();
-        $stmt = $db->prepare("SELECT issuerecords.*, returnrequests.returndate FROM issuerecords LEFT JOIN returnrequests ON issuerecords.title = returnrequests.title WHERE issuerecords.username = ? ") ;
-        $stmt->execute([$username]);
-        $rows = $stmt->fetchAll();
+        $query = "SELECT IssueRecords.Title, Issuerecords.Username, Issuerecords.RequestDate, Issuerecords.AcceptDate, Issuerecords.IssueDate, ReturnRequests.ReturnDate " ;
+        $query.= "FROM IssueRecords LEFT JOIN ReturnRequests " ;
+        $query.= "ON IssueRecords.Title = ReturnRequests.Title WHERE IssueRecords.Username = ?" ;
+        $statement = $db->prepare($query);
+        $statement->execute([$username]);
+        $rows = $statement->fetchAll();
         return $rows;
     }
 }

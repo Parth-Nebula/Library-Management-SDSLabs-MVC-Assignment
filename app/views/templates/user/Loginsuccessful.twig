@@ -15,16 +15,13 @@
         <div id="welcome">
         </div>
         <form class="next" action="/goToUserPortal" method="POST" >
-            <input type="text" id="username" name="username" value="" style="display:none">
-            <input type="text" id="tempPassword" name="temppassword" value="" style="display:none">
             <input type="submit" class="nextButton" value="Next">
         </form>
 {% endblock %}
 {% block bottom %}
 	{{- parent() -}}
     <script>
-        const data_one = "{{ username }}" ;
-        const data_two = "{{ tempPassword }}" ;
+        data_one = "{{ username }}" ;
     </script>
     <script src="script/user/Loginsuccessfulscript.js"></script>
 {% endblock %}

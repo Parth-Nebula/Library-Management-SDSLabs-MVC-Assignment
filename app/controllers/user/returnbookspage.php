@@ -10,10 +10,10 @@ class ReturnBooksPage {
     }
     public function post() 
     {   
-        $session_status = \Controller\User\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\User\Session::check() ;
         if ( $session_status )
         {
-            $issue_records_and_return_requests = \Model\User\Joins::issue_records_return_requests($_POST["username"]) ;
+            $issue_records_and_return_requests = \Model\User\Joins::issue_records_return_requests($_SESSION["Username"]) ;
             echo \View\Loader::make()->render
             (  
                 "templates/user/Returnbooks.twig" ,

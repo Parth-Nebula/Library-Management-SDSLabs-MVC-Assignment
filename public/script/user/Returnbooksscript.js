@@ -35,21 +35,19 @@ for (let i = 0 ; i < list_of_books.length ; i++)
     cell4.style = "padding: 1vw; width: 27vw;";
     cell5 = row.insertCell(4);
     cell5.style = "padding: 1vw; width: 27vw;";
-    cell1.innerHTML = list_of_books[i].title;
-    javaDate = new Date(list_of_books[i].requestdate);
+    cell1.innerHTML = list_of_books[i].Title;
+    javaDate = new Date(list_of_books[i].RequestDate);
     cell2.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
-    javaDate = new Date(list_of_books[i].acceptdate);
+    javaDate = new Date(list_of_books[i].AcceptDate);
     cell3.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
-    javaDate = new Date(list_of_books[i].issuedate);
+    javaDate = new Date(list_of_books[i].IssueDate);
     cell4.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
-    if ( list_of_books[i].returndate == null)
+    if ( list_of_books[i].ReturnDate == null)
     {
-        cell5.innerHTML = " <form action='/makeAReturn' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='title' name='title' value='" + list_of_books[i].title + "' style='display:none'> <input type='submit' class='returnButton' value='Return'> </form> ";
+        cell5.innerHTML = " <form action='/makeAReturn' method='POST'> <input type='text' class='title' name='BookTitle' value='" + list_of_books[i].Title + "' style='display:none'> <input type='submit' class='returnButton' value='Return'> </form> ";
     }
     else
     {
         cell5.innerHTML = "Returning..." ;
     }
 }
-document.getElementById("username").defaultValue = sessionStorage.getItem("username");
-document.getElementById("tempPassword").defaultValue = sessionStorage.getItem("tempPassword");

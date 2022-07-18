@@ -5,9 +5,9 @@ class IssueRecords
     public static function user_all( $username )
     {
         $db = \DB::get_instance();
-        $stmt = $db->prepare("SELECT * FROM issuerecords WHERE username = ? ");
-        $stmt->execute([$username]);
-        $rows = $stmt->fetchAll();
+        $statement = $db->prepare("SELECT Title, Username, RequestDate, AcceptDate, IssueDate FROM IssueRecords WHERE Username = ? ");
+        $statement->execute([$username]);
+        $rows = $statement->fetchAll();
         return $rows;
     }
 }

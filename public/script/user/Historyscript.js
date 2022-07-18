@@ -1,5 +1,5 @@
-document.getElementById("hiUser").innerHTML = "hi " + data_one.username;
-document.getElementById("fineUser").innerHTML = "Your Fine is " + data_one.fine;
+document.getElementById("hiUser").innerHTML = "hi " + data_one.Username;
+document.getElementById("fineUser").innerHTML = "Your Fine is " + data_one.Fine;
 document.getElementById("tableName").innerHTML = "Issue History" ;
 let list_of_requests = data_two;
 let table = document.getElementById("booksTable");
@@ -39,16 +39,13 @@ for ( let i = 0 ; i < list_of_requests.length ; i++)
     cell4.style = "padding: 1vw; width: 27vw;" ;
     cell5 = row.insertCell(4);
     cell5.style = "padding: 1vw; width: 27vw;" ;
-    cell1.innerHTML = list_of_requests[i].title;
-    javaDate = new Date(list_of_requests[i].requestdate);
+    cell1.innerHTML = list_of_requests[i].Title;
+    javaDate = new Date(list_of_requests[i].RequestDate);
     cell2.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
-    javaDate = new Date(list_of_requests[i].acceptdate);
+    javaDate = new Date(list_of_requests[i].AcceptDate);
     cell3.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
-    javaDate = new Date(list_of_requests[i].issuedate);
+    javaDate = new Date(list_of_requests[i].IssueDate);
     cell4.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
-    javaDate = new Date(list_of_requests[i].returndate);
+    javaDate = new Date(list_of_requests[i].ReturnDate);
     cell5.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
     }
-document.getElementById("username").defaultValue = sessionStorage.getItem("username");
-document.getElementById("tempPassword").defaultValue = sessionStorage.getItem("tempPassword");
-

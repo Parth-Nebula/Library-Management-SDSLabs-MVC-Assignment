@@ -10,32 +10,18 @@
 {% block body %}
 	{{- parent() -}}
     <form action="/goToUserRequestBooksPage" method="POST">
-        <input type="text" class="username" name="username" value="" style="display:none">
-        <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
         <input type="submit" class="requestButton" value="Request Books">
     </form>
      <form action="/goToUserRequestedBooksPage" method="POST">
-        <input type="text" class="username" name="username" value="" style="display:none">
-        <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
         <input type="submit" class="requestedButton" value="Requested Books">
     </form>
     <form action="/goToUserReturnBooksPage" method="POST">
-        <input type="text" class="username" name="username" value="" style="display:none">
-        <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
         <input type="submit" class="returnButton" value="Return Books">
     </form>
     <form action="/goToUserHistoryPage" method="POST">
-        <input type="text" class="username" name="username" value="" style="display:none">
-        <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
         <input type="submit" class="historyButton" value="History & Status">
     </form>
     <form action="/logoutUser" method="POST">
-        <input type="text" class="username" name="username" value="" style="display:none">
-        <input type="text" class="tempPassword" name="temppassword" value="" style="display:none">
         <input type="submit" class="logoutButton" value="Logout">
     </form>
-{% endblock %}
-{% block bottom %}
-	{{- parent() -}}
-    <script src="/script/user/Portalscript.js"></script>
 {% endblock %}

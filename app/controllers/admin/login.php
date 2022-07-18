@@ -11,15 +11,15 @@ class Login
     }
     public function post() 
     {   
-        $user_details = \Model\Admin\Admins::admin_all($_POST["username"]) ;
+        $user_details = \Model\Admin\Admins::admin_all($_POST["Username"]) ;
         if ( !$user_details )
         {
-            $request_details = \Model\Admin\AdminRequests::admin_all( $_POST["username"] ) ;
+            $request_details = \Model\Admin\AdminRequests::admin_all( $_POST["Username"] ) ;
             if ( $request_details )
             {
-                $password_and_salt = $_POST["password"] . $request_details["salt"] ;
+                $password_and_salt = $_POST["Password"] . $request_details["Salt"] ;
                 $hash = base64_encode ( hash ( "sha256" , $password_and_salt , true ) ) ;
-                if ( $request_details["hashedsaltedpassword"] == $hash )
+                if ( $request_details["HashedSaltedPassword"] == $hash )
                 {
                     echo \View\Loader::make()->render
                     (
@@ -44,18 +44,17 @@ class Login
         }
         else 
         {
-            $password_and_salt = $_POST["password"] . $user_details["salt"] ;
+            $password_and_salt = $_POST["Password"] . $user_details["Salt"] ;
             $hash = base64_encode ( hash ( "sha256" , $password_and_salt , true ) ) ;
-            if ( $user_details["hashedsaltedpassword"] == $hash )
+            if ( $user_details["HashedSaltedPassword"] == $hash )
             {
-                $temp_password = \Controller\Admin\Session::Create($_POST["username"]);
+                \Controller\Admin\Session::create($_POST["Username"]);
                 echo \View\Loader::make()->render
                 (
                     "templates/admin/Loginsuccessful.twig",
                     array
                     (
-                        "username" => $_POST["username"] ,
-                        "tempPassword" => $temp_password ,
+                        "Username" => $_POST["Username"] ,
                     )
                 );
             }

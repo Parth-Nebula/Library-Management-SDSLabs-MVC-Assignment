@@ -10,14 +10,14 @@ class GiveABook {
     }
     public function post() 
     {
-        $session_status = \Controller\Admin\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\Admin\Session::check() ;
         if ( $session_status )
         {
-            $issue_request = \Model\Admin\IssueRequests::client_book_status_one_all( $_POST["clientname"] , $_POST["booktitle"] ) ;
+            $issue_request = \Model\Admin\IssueRequests::client_book_status_one_all( $_POST["ClientName"] , $_POST["BookTitle"] ) ;
             if ( $issue_request )
             {
-                \Model\Admin\IssueRecords::insert( $_POST["booktitle"] , $_POST["clientname"] , $issue_request["requestdate"] , $issue_request["replydate"] ) ;
-                \Model\Admin\IssueRequests::client_book_status_one_delete ( $_POST["clientname"] , $_POST["booktitle"] ) ;
+                \Model\Admin\IssueRecords::insert( $_POST["BookTitle"] , $_POST["ClientName"] , $issue_request["RequestDate"] , $issue_request["ReplyDate"] ) ;
+                \Model\Admin\IssueRequests::client_book_status_one_delete ( $_POST["ClientName"] , $_POST["BookTitle"] ) ;
             }
             $givable_books = \Model\Admin\IssueRequests::status_one_all(); 
             echo \View\Loader::make()->render

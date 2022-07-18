@@ -10,26 +10,26 @@ class TakeABook  {
     }
     public function post() 
     {
-        $session_status = \Controller\Admin\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\Admin\Session::check() ;
         if ( $session_status )
         {
-            if ( $_POST["action"] == 1 ) 
+            if ( $_POST["Action"] == 1 ) 
             {
-                $issue_data = \Model\Admin\Joins::issue_records_return_requests( $_POST["clientname"] , $_POST["booktitle"] ) ;
+                $issue_data = \Model\Admin\Joins::issue_records_return_requests( $_POST["ClientName"] , $_POST["BookTitle"] ) ;
                 if ( $issue_data )
                 {
-                    \Model\Admin\History::insert( $issue_data["title"] , $issue_data["username"] , $issue_data["requestdate"] , $issue_data["acceptdate"] , $issue_data["issuedate"] , $issue_data["returndate"] ) ;
-                    \Model\Admin\IssueRecords::client_book_delete ( $issue_data["username"] , $issue_data["title"] ) ;
-                    \Model\Admin\ReturnRequests::client_book_delete ( $issue_data["username"] , $issue_data["title"] ) ;
-                    \Model\Admin\Books::book_update_quantity_available_plus_one( $issue_data["title"] ) ;
-                    $issue_date = new \DateTime($issue_data["issuedate"]);
-                    $return_date = new \DateTime($issue_data["returndate"]);
+                    \Model\Admin\History::insert( $issue_data["Title"] , $issue_data["Username"] , $issue_data["RequestDate"] , $issue_data["AcceptDate"] , $issue_data["IssueDate"] , $issue_data["ReturnDate"] ) ;
+                    \Model\Admin\IssueRecords::client_book_delete ( $issue_data["Username"] , $issue_data["Title"] ) ;
+                    \Model\Admin\ReturnRequests::client_book_delete ( $issue_data["Username"] , $issue_data["Title"] ) ;
+                    \Model\Admin\Books::book_update_quantity_available_plus_one( $issue_data["Title"] ) ;
+                    $issue_date = new \DateTime($issue_data["IssueDate"]);
+                    $return_date = new \DateTime($issue_data["ReturnDate"]);
                     $interval = $issue_date->diff($return_date);
                     $days = $interval->days ;
                     if ( $days > 7 )
                     {
                         $days = $days - 7 ;
-                        \Model\Admin\Users::client_update_fine( $issue_data["username"] , $days ) ;
+                        \Model\Admin\Users::client_update_fine( $issue_data["Username"] , $days ) ;
                     }
                 }
                 else
@@ -40,9 +40,9 @@ class TakeABook  {
                     );
                 }
             }
-            else if ( $_POST["action"] == 2 )
+            else if ( $_POST["Action"] == 2 )
             {
-                \Model\Admin\ReturnRequests::client_book_delete ( $_POST["clientname"] , $_POST["booktitle"] ) ;
+                \Model\Admin\ReturnRequests::client_book_delete ( $_POST["ClientName"] , $_POST["BookTitle"] ) ;
             }
             $return_requests = \Model\Admin\ReturnRequests::all() ; 
             echo \View\Loader::make()->render

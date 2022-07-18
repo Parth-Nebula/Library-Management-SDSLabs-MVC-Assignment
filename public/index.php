@@ -23,7 +23,7 @@ Toro::serve(array(
     "/goToUserRequestedBooksPage" => "\Controller\User\RequestedBooksPage" ,
     "/completeRequest" => "\Controller\User\CompleteRequest" ,
     "/goToUserReturnBooksPage" => "\Controller\User\ReturnBooksPage" ,
-    "/makeAreturn" => "\Controller\User\ReturnBook" ,
+    "/makeAReturn" => "\Controller\User\ReturnBook" ,
     "/goToUserHistoryPage" => "\Controller\User\HistoryPage" ,
     "/goToAdminLoginPage" => "\Controller\Admin\LoginPage" ,
     "/goToAdminRegisterPage" => "\Controller\Admin\RegisterPage" ,

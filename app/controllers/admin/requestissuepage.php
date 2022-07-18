@@ -10,7 +10,7 @@ class RequestIssuePage {
     }
     public function post() 
     {
-        $session_status = \Controller\Admin\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\Admin\Session::check() ;
         if ( $session_status )
         {
             $requested_books_with_amount = \Model\Admin\Joins::issue_requests_books();

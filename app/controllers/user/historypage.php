@@ -10,11 +10,11 @@ class HistoryPage {
     }
     public function post() 
     {   
-        $session_status = \Controller\User\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\User\Session::check() ;
         if ( $session_status )
         {
-            $user_info = \Model\User\Users::user_all($_POST["username"]) ;
-            $books_issued = \Model\User\History::user_all( $_POST["username"] ) ;
+            $user_info = \Model\User\Users::user_all($_SESSION["Username"]) ;
+            $books_issued = \Model\User\History::user_all( $_SESSION["Username"] ) ;
             echo \View\Loader::make()->render
             (  
                 "templates/user/History.twig" ,

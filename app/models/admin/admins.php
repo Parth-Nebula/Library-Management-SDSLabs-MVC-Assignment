@@ -5,7 +5,7 @@ class Admins
     public static function admin_all ( $admin_name )
     {
         $db = \DB::get_instance();
-        $statement = $db->prepare("SELECT * FROM admins WHERE username = ? ");
+        $statement = $db->prepare("SELECT Username, HashedSaltedPassword, Salt FROM Admins WHERE Username = ? ");
         $statement->execute([$admin_name]);
         $row = $statement->fetch();
         return $row;
@@ -13,7 +13,7 @@ class Admins
     public static function all_username ()
     {
         $db = \DB::get_instance();
-        $statement = $db->prepare("SELECT username FROM admins ");
+        $statement = $db->prepare("SELECT Username FROM Admins ");
         $statement->execute();
         $rows = $statement->fetchAll();
         return $rows;
@@ -21,7 +21,7 @@ class Admins
     public static function insert ($client_name)
     {
         $db = \DB::get_instance();
-        $statement = $db->prepare("INSERT INTO admins SELECT * FROM adminrequests WHERE username= ?");
+        $statement = $db->prepare("INSERT INTO Admins SELECT Username, HashedSaltedPassword, Salt FROM Adminrequests WHERE Username= ?");
         $statement->execute([$client_name]);
     }
 }

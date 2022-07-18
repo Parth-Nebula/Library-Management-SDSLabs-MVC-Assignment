@@ -10,18 +10,18 @@ class RemoveBooks {
     }
     public function post() 
     {
-        $session_status = \Controller\Admin\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\Admin\Session::check() ;
         if ( $session_status )
-        {
-            $book = \Model\Admin\Books::book_all ( $_POST["booktitle"] ) ;
-             if ( $book["quantityavailable"] >= $_POST["quantityfilled"]  and  $book["quantity"] > $_POST["quantityfilled"] )
+        {            
+            $book = \Model\Admin\Books::book_all ( $_POST["BookTitle"] ) ;
+             if ( $book["QuantityAvailable"] >= $_POST["QuantityFilled"]  and  $book["Quantity"] > $_POST["QuantityFilled"] )
             {
-                \Model\Admin\Books::book_update_quantity ( $_POST["booktitle"] , "-".$_POST["quantityfilled"] ) ;
-                \Model\Admin\Books::book_update_quantity_available ( $_POST["booktitle"] , "-".$_POST["quantityfilled"] ) ;
+                \Model\Admin\Books::book_update_Quantity ( $_POST["BookTitle"] , "-".$_POST["QuantityFilled"] ) ;
+                \Model\Admin\Books::book_update_Quantity_available ( $_POST["BookTitle"] , "-".$_POST["QuantityFilled"] ) ;
             }
-            else if ( $book["quantityavailable"] == $_POST["quantityfilled"]  and  $book["quantity"] == $_POST["quantityfilled"] )
+            else if ( $book["QuantityAvailable"] == $_POST["QuantityFilled"]  and  $book["Quantity"] == $_POST["QuantityFilled"] )
             {
-                \Model\Admin\Books::book_delete ( $_POST["booktitle"] ) ;
+                \Model\Admin\Books::book_delete ( $_POST["BookTitle"] ) ;
             }
             $books = \Model\Admin\Books::all() ; 
             echo \View\Loader::make()->render

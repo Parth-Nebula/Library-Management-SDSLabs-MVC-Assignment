@@ -16,260 +16,210 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `adminrequests`
+-- Table structure for table `AdminRequests`
 --
 
-DROP TABLE IF EXISTS `adminrequests`;
+DROP TABLE IF EXISTS `AdminRequests`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `adminrequests` (
-  `username` varchar(30) DEFAULT NULL,
-  `hashedsaltedpassword` varchar(65) DEFAULT NULL,
-  `salt` varchar(20) DEFAULT NULL
+CREATE TABLE `AdminRequests` (
+  `Username` varchar(30) DEFAULT NULL,
+  `HashedSaltedPassword` varchar(65) DEFAULT NULL,
+  `Salt` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `adminrequests`
+-- Dumping data for table `AdminRequests`
 --
 
-LOCK TABLES `adminrequests` WRITE;
-/*!40000 ALTER TABLE `adminrequests` DISABLE KEYS */;
-INSERT INTO `adminrequests` VALUES ('a','VSDY/0ipa/i1KaD1u6lkW6J6Hcw8sBtlWz04aGgjhHU=','76313079395');
-/*!40000 ALTER TABLE `adminrequests` ENABLE KEYS */;
+LOCK TABLES `AdminRequests` WRITE;
+/*!40000 ALTER TABLE `AdminRequests` DISABLE KEYS */;
+INSERT INTO `AdminRequests` VALUES ('a','VSDY/0ipa/i1KaD1u6lkW6J6Hcw8sBtlWz04aGgjhHU=','76313079395');
+/*!40000 ALTER TABLE `AdminRequests` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `admins`
+-- Table structure for table `Admins`
 --
 
-DROP TABLE IF EXISTS `admins`;
+DROP TABLE IF EXISTS `Admins`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `admins` (
-  `username` varchar(30) NOT NULL,
-  `hashedsaltedpassword` varchar(65) DEFAULT NULL,
-  `salt` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`username`)
+CREATE TABLE `Admins` (
+  `Username` varchar(30) NOT NULL,
+  `HashedSaltedPassword` varchar(65) DEFAULT NULL,
+  `Salt` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`Username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `admins`
+-- Dumping data for table `Admins`
 --
 
-LOCK TABLES `admins` WRITE;
-/*!40000 ALTER TABLE `admins` DISABLE KEYS */;
-INSERT INTO `admins` VALUES ('abc','RjGdu/SO3rRnQLn+wleFuY6pvsHZSqBH5MWTkYd02IM=','98538396772881240000');
-/*!40000 ALTER TABLE `admins` ENABLE KEYS */;
+LOCK TABLES `Admins` WRITE;
+/*!40000 ALTER TABLE `Admins` DISABLE KEYS */;
+INSERT INTO `Admins` VALUES ('abc','RjGdu/SO3rRnQLn+wleFuY6pvsHZSqBH5MWTkYd02IM=','98538396772881240000');
+/*!40000 ALTER TABLE `Admins` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `books`
+-- Table structure for table `Books`
 --
 
-DROP TABLE IF EXISTS `books`;
+DROP TABLE IF EXISTS `Books`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `books` (
-  `title` varchar(30) NOT NULL,
-  `quantity` int DEFAULT NULL,
-  `quantityavailable` int DEFAULT NULL,
-  PRIMARY KEY (`title`)
+CREATE TABLE `Books` (
+  `Title` varchar(30) NOT NULL,
+  `Quantity` int DEFAULT NULL,
+  `QuantityAvailable` int DEFAULT NULL,
+  PRIMARY KEY (`Title`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `books`
+-- Dumping data for table `Books`
 --
 
-LOCK TABLES `books` WRITE;
-/*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` VALUES ('Irodov',1000,1000),('Krotov',1000,1000),('Pathfinder',1000,1000),('R K Jain',1000,1000);
-/*!40000 ALTER TABLE `books` ENABLE KEYS */;
+LOCK TABLES `Books` WRITE;
+/*!40000 ALTER TABLE `Books` DISABLE KEYS */;
+INSERT INTO `Books` VALUES ('Irodov',1000,1000),('Krotov',1000,1000),('Pathfinder',1000,1000),('R K Jain',1000,1000);
+/*!40000 ALTER TABLE `Books` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `history`
+-- Table structure for table `History`
 --
 
-DROP TABLE IF EXISTS `history`;
+DROP TABLE IF EXISTS `History`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `history` (
-  `title` varchar(30) DEFAULT NULL,
-  `username` varchar(30) DEFAULT NULL,
-  `requestdate` date DEFAULT NULL,
-  `acceptdate` date DEFAULT NULL,
-  `issuedate` date DEFAULT NULL,
-  `returndate` date DEFAULT NULL,
-  KEY `username` (`username`),
-  CONSTRAINT `history_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
+CREATE TABLE `History` (
+  `Title` varchar(30) DEFAULT NULL,
+  `Username` varchar(30) DEFAULT NULL,
+  `RequestDate` date DEFAULT NULL,
+  `AcceptDate` date DEFAULT NULL,
+  `IssueDate` date DEFAULT NULL,
+  `ReturnDate` date DEFAULT NULL,
+  KEY `Username` (`Username`),
+  CONSTRAINT `History_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `history`
+-- Dumping data for table `History`
 --
 
-LOCK TABLES `history` WRITE;
-/*!40000 ALTER TABLE `history` DISABLE KEYS */;
-/*!40000 ALTER TABLE `history` ENABLE KEYS */;
+LOCK TABLES `History` WRITE;
+/*!40000 ALTER TABLE `History` DISABLE KEYS */;
+/*!40000 ALTER TABLE `History` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `issuerecords`
+-- Table structure for table `IssueRecords`
 --
 
-DROP TABLE IF EXISTS `issuerecords`;
+DROP TABLE IF EXISTS `IssueRecords`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `issuerecords` (
-  `title` varchar(30) DEFAULT NULL,
-  `username` varchar(30) DEFAULT NULL,
-  `requestdate` date DEFAULT NULL,
-  `acceptdate` date DEFAULT NULL,
-  `issuedate` date DEFAULT NULL,
-  KEY `username` (`username`),
-  CONSTRAINT `issuerecords_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
+CREATE TABLE `IssueRecords` (
+  `Title` varchar(30) DEFAULT NULL,
+  `Username` varchar(30) DEFAULT NULL,
+  `RequestDate` date DEFAULT NULL,
+  `AcceptDate` date DEFAULT NULL,
+  `IssueDate` date DEFAULT NULL,
+  KEY `Username` (`Username`),
+  CONSTRAINT `IssueRecords_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `issuerecords`
+-- Dumping data for table `IssueRecords`
 --
 
-LOCK TABLES `issuerecords` WRITE;
-/*!40000 ALTER TABLE `issuerecords` DISABLE KEYS */;
-/*!40000 ALTER TABLE `issuerecords` ENABLE KEYS */;
+LOCK TABLES `IssueRecords` WRITE;
+/*!40000 ALTER TABLE `IssueRecords` DISABLE KEYS */;
+/*!40000 ALTER TABLE `IssueRecords` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `issuerequests`
+-- Table structure for table `IssueRequests`
 --
 
-DROP TABLE IF EXISTS `issuerequests`;
+DROP TABLE IF EXISTS `IssueRequests`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `issuerequests` (
-  `title` varchar(30) DEFAULT NULL,
-  `username` varchar(30) DEFAULT NULL,
-  `status` tinyint DEFAULT '0',
-  `requestdate` date DEFAULT NULL,
-  `replydate` date DEFAULT NULL,
-  KEY `username` (`username`),
-  CONSTRAINT `issuerequests_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
+CREATE TABLE `IssueRequests` (
+  `Title` varchar(30) DEFAULT NULL,
+  `Username` varchar(30) DEFAULT NULL,
+  `Status` tinyint DEFAULT '0',
+  `RequestDate` date DEFAULT NULL,
+  `ReplyDate` date DEFAULT NULL,
+  KEY `Username` (`Username`),
+  CONSTRAINT `IssueRequests_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `issuerequests`
+-- Dumping data for table `IssueRequests`
 --
 
-LOCK TABLES `issuerequests` WRITE;
-/*!40000 ALTER TABLE `issuerequests` DISABLE KEYS */;
-/*!40000 ALTER TABLE `issuerequests` ENABLE KEYS */;
+LOCK TABLES `IssueRequests` WRITE;
+/*!40000 ALTER TABLE `IssueRequests` DISABLE KEYS */;
+/*!40000 ALTER TABLE `IssueRequests` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `returnrequests`
+-- Table structure for table `ReturnRequests`
 --
 
-DROP TABLE IF EXISTS `returnrequests`;
+DROP TABLE IF EXISTS `ReturnRequests`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `returnrequests` (
-  `title` varchar(30) DEFAULT NULL,
-  `username` varchar(30) DEFAULT NULL,
-  `returndate` date DEFAULT NULL,
-  KEY `username` (`username`),
-  CONSTRAINT `returnrequests_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
+CREATE TABLE `ReturnRequests` (
+  `Title` varchar(30) DEFAULT NULL,
+  `Username` varchar(30) DEFAULT NULL,
+  `ReturnDate` date DEFAULT NULL,
+  KEY `Username` (`Username`),
+  CONSTRAINT `ReturnRequests_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `Users` (`Username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `returnrequests`
+-- Dumping data for table `ReturnRequests`
 --
 
-LOCK TABLES `returnrequests` WRITE;
-/*!40000 ALTER TABLE `returnrequests` DISABLE KEYS */;
-/*!40000 ALTER TABLE `returnrequests` ENABLE KEYS */;
+LOCK TABLES `ReturnRequests` WRITE;
+/*!40000 ALTER TABLE `ReturnRequests` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ReturnRequests` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `sessionmaintainer`
+-- Table structure for table `Users`
 --
 
-DROP TABLE IF EXISTS `sessionmaintainer`;
+DROP TABLE IF EXISTS `Users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sessionmaintainer` (
-  `username` varchar(30) DEFAULT NULL,
-  `hashedsaltedtemppassword` varchar(65) DEFAULT NULL,
-  `salt` varchar(20) DEFAULT NULL,
-  UNIQUE KEY `username` (`username`),
-  CONSTRAINT `sessionmaintainer_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
+CREATE TABLE `Users` (
+  `Username` varchar(30) NOT NULL,
+  `HashedSaltedPassword` varchar(65) DEFAULT NULL,
+  `Salt` varchar(20) DEFAULT NULL,
+  `Fine` int DEFAULT '0',
+  PRIMARY KEY (`Username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `sessionmaintainer`
+-- Dumping data for table `Users`
 --
 
-LOCK TABLES `sessionmaintainer` WRITE;
-/*!40000 ALTER TABLE `sessionmaintainer` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sessionmaintainer` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `sessionmaintaineradmin`
---
-
-DROP TABLE IF EXISTS `sessionmaintaineradmin`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sessionmaintaineradmin` (
-  `username` varchar(30) DEFAULT NULL,
-  `hashedsaltedtemppassword` varchar(65) DEFAULT NULL,
-  `salt` varchar(20) DEFAULT NULL,
-  UNIQUE KEY `username` (`username`),
-  CONSTRAINT `sessionmaintaineradmin_ibfk_1` FOREIGN KEY (`username`) REFERENCES `admins` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sessionmaintaineradmin`
---
-
-LOCK TABLES `sessionmaintaineradmin` WRITE;
-/*!40000 ALTER TABLE `sessionmaintaineradmin` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sessionmaintaineradmin` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
-  `username` varchar(30) NOT NULL,
-  `hashedsaltedpassword` varchar(65) DEFAULT NULL,
-  `salt` varchar(20) DEFAULT NULL,
-  `fine` int DEFAULT '0',
-  PRIMARY KEY (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('abc','RjGdu/SO3rRnQLn+wleFuY6pvsHZSqBH5MWTkYd02IM=','98538396772881240000',0);
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+LOCK TABLES `Users` WRITE;
+/*!40000 ALTER TABLE `Users` DISABLE KEYS */;
+INSERT INTO `Users` VALUES ('abc','RjGdu/SO3rRnQLn+wleFuY6pvsHZSqBH5MWTkYd02IM=','98538396772881240000',0);
+/*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -281,4 +231,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-17 20:09:37
+-- Dump completed on 2022-07-18  4:30:10

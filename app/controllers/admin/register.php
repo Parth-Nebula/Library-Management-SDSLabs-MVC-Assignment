@@ -12,9 +12,9 @@ class Register
     public function post() 
     {
         $flag = 0 ;
-        for ( $i = 0 ; $i < strlen( $_POST["username"]) ; $i++ )
+        for ( $i = 0 ; $i < strlen( $_POST["Username"]) ; $i++ )
         {
-            if ( $_POST["username"][$i] == " " )
+            if ( $_POST["Username"][$i] == " " )
             {
                 echo \View\Loader::make()->render
                 (  
@@ -24,7 +24,7 @@ class Register
                 break ;
             }
         }
-        if ( strlen( $_POST["password"]) < 8 and $flag == 0)
+        if ( strlen( $_POST["Password"]) < 8 and $flag == 0)
         {
             echo \View\Loader::make()->render
             (  
@@ -34,7 +34,7 @@ class Register
         }
         else if ( $flag == 0 ) 
         {
-            $admins = \Model\Admin\Admins::admin_all ( $_POST["username"] ) ;
+            $admins = \Model\Admin\Admins::admin_all ( $_POST["Username"] ) ;
             if ( $admins )
             {
                 echo \View\Loader::make()->render
@@ -44,11 +44,11 @@ class Register
             }
             else
             {
-                $some_Random_salt_Number = rand ( 1E+10 , 9E+10 ) ;
-                $some_Random_salt = (string)$some_Random_salt_Number ;
-                $password_and_salt = $_POST["password"] . $some_Random_salt ;
+                $some_random_salt_Number = rand ( 1E+10 , 9E+10 ) ;
+                $some_random_salt = (string)$some_random_salt_Number ;
+                $password_and_salt = $_POST["Password"] . $some_random_salt ;
                 $some_hash = base64_encode ( hash ( "sha256" , $password_and_salt , true ) ) ;
-                \Model\Admin\AdminRequests::insert ( $_POST["username"] , $some_hash , $some_Random_salt ) ;
+                \Model\Admin\AdminRequests::insert ( $_POST["Username"] , $some_hash , $some_random_salt ) ;
                 echo \View\Loader::make()->render
                 (  
                     "templates/admin/Registrationsuccessful.twig" ,

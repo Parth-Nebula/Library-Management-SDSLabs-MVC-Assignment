@@ -10,7 +10,7 @@ class BooksGivePage {
     }
     public function post() 
     {   
-        $session_status = \Controller\Admin\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\Admin\Session::check() ;
         if ( $session_status )
         {
             $givable_books = \Model\Admin\IssueRequests::status_one_all(); 

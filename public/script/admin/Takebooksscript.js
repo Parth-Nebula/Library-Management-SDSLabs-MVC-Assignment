@@ -33,12 +33,10 @@ for (let i = 0 ; i < list_of_requests.length ; i++)
     cell4.style = "padding: 1vw; width: 27vw;" ;
     cell5 = row.insertCell(4);
     cell5.style = "padding: 1vw; width: 27vw;" ;
-    cell1.innerHTML = list_of_requests[i].username;
-    cell2.innerHTML = list_of_requests[i].title;
-    javaDate = new Date(list_of_requests[i].returndate);
+    cell1.innerHTML = list_of_requests[i].Username;
+    cell2.innerHTML = list_of_requests[i].Title;
+    javaDate = new Date(list_of_requests[i].ReturnDate);
     cell3.innerHTML = String(javaDate.getFullYear()) + "-" + String(javaDate.getMonth()+1) + "-" + String(javaDate.getDate()) ;
-    cell4.innerHTML = " <form action='/takeABook' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_requests[i].title + "' style='display:none'> <input type='text' class='clientName' name='clientname' value='"+ list_of_requests[i].username + "' + style='display:none'> <input type='text' class='action' name='action' value=1 style='display:none'> <input type='submit' class='actButton' value='Accept'> </form> " ;
-    cell5.innerHTML = " <form action='/takeABook' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_requests[i].title + "' style='display:none'> <input type='text' class='clientName' name='clientname' value='"+ list_of_requests[i].username + "' + style='display:none'> <input type='text' class='action' name='action' value=2 style='display:none'> <input type='submit' class='actButton' value='Deny'> </form> " ;
+    cell4.innerHTML = " <form action='/takeABook' method='POST'> <input type='text' class='bookTitle' name='BookTitle' value='" + list_of_requests[i].Title + "' style='display:none'> <input type='text' class='clientName' name='ClientName' value='"+ list_of_requests[i].Username + "' + style='display:none'> <input type='text' class='action' name='Action' value=1 style='display:none'> <input type='submit' class='actButton' value='Accept'> </form> " ;
+    cell5.innerHTML = " <form action='/takeABook' method='POST'> <input type='text' class='bookTitle' name='BookTitle' value='" + list_of_requests[i].Title + "' style='display:none'> <input type='text' class='clientName' name='ClientName' value='"+ list_of_requests[i].Username + "' + style='display:none'> <input type='text' class='action' name='Action' value=2 style='display:none'> <input type='submit' class='actButton' value='Deny'> </form> " ;
 }
-document.getElementById("username").defaultValue = sessionStorage.getItem("username");
-document.getElementById("tempPassword").defaultValue = sessionStorage.getItem("tempPassword");

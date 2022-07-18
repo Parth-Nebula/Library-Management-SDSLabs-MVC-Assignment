@@ -10,13 +10,13 @@ class RequestBook {
     }
     public function post() 
     {   
-        $session_status = \Controller\User\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\User\Session::check() ;
         if ( $session_status )
         {
-            \Model\User\IssueRequests::insert($_POST["username"] , $_POST["booktitle"]) ;
+            \Model\User\IssueRequests::insert($_SESSION["Username"] , $_POST["BookTitle"]) ;
             $books = \Model\User\Books::all() ;
-            $requests_made = \Model\User\IssueRequests::user_all( $_POST["username"] ) ;
-            $issued_books = \Model\User\IssueRecords::user_all( $_POST["username"] ) ;
+            $requests_made = \Model\User\IssueRequests::user_all( $_SESSION["Username"] ) ;
+            $issued_books = \Model\User\IssueRecords::user_all( $_SESSION["Username"] ) ;
             echo \View\Loader::make()->render
             (  
                 "templates/user/Requestbooks.twig" ,

@@ -10,16 +10,16 @@ class CompleteRequest {
     }
     public function post() 
     {
-        $session_status = \Controller\User\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\User\Session::check() ;
         if ( $session_status )
         {
-            $request = \Model\User\IssueRequests::user_book_all( $_POST["username"] , $_POST["booktitle"] ) ;
-            if ( $request["status"] == 1 )
+            $request = \Model\User\IssueRequests::user_book_all( $_SESSION["Username"] , $_POST["BookTitle"] ) ;
+            if ( $request["Status"] == 1 )
             {
-                \Model\User\Books::book_update_quantity_available_plus_one( $_POST["booktitle"] ) ;
+                \Model\User\Books::book_update_quantity_available_plus_one( $_POST["BookTitle"] ) ;
             }
-            \Model\User\IssueRequests::user_book_delete( $_POST["username"] , $_POST["booktitle"] ) ;
-            $requestsmade = \Model\User\IssueRequests::user_all( $_POST["username"] ) ;
+            \Model\User\IssueRequests::user_book_delete( $_SESSION["Username"] , $_POST["BookTitle"] ) ;
+            $requestsmade = \Model\User\IssueRequests::user_all( $_SESSION["Username"] ) ;
             echo \View\Loader::make()->render
             (  
                 "templates/user/Requestedbooks.twig" ,

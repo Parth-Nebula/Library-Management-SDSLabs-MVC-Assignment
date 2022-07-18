@@ -11,30 +11,30 @@ class ActOnARequest
     }
     public function post() 
     {      
-        $session_status = \Controller\Admin\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\Admin\Session::check() ;
         if ( $session_status )
         {
-            $request = \Model\Admin\IssueRequests::client_book_all( $_POST["clientname"] , $_POST["booktitle"] ) ;
+            $request = \Model\Admin\IssueRequests::client_book_all( $_POST["ClientName"] , $_POST["BookTitle"] ) ;
             if ( $request )
             {
-                if ( $_POST["action"] == 1 )
+                if ( $_POST["Action"] == 1 )
                 {
-                    if ( $request["status"] == 2 or $request["status"] == 0 )
+                    if ( $request["Status"] == 2 or $request["Status"] == 0 )
                     {
-                        \Model\Admin\Books::book_update_quantity_available_minus_one( $_POST["booktitle"] ) ;
-                        \Model\Admin\IssueRequests::client_book_update_status_one ( $_POST["clientname"] , $_POST["booktitle"] ) ;
+                        \Model\Admin\Books::book_update_quantity_available_minus_one( $_POST["BookTitle"] ) ;
+                        \Model\Admin\IssueRequests::client_book_update_status_one ( $_POST["ClientName"] , $_POST["BookTitle"] ) ;
                     }
                 }
-                else if ( $_POST["action"] == 2)
+                else if ( $_POST["Action"] == 2)
                 {
-                    if ( $request["status"] == 1 )
+                    if ( $request["Status"] == 1 )
                     {
-                        \Model\Admin\Books::book_update_quantity_available_plus_one( $_POST["booktitle"] ) ;
-                        \Model\Admin\IssueRequests::client_book_update_status_two ( $_POST["clientname"] , $_POST["booktitle"] ) ; 
+                        \Model\Admin\Books::book_update_quantity_available_plus_one( $_POST["BookTitle"] ) ;
+                        \Model\Admin\IssueRequests::client_book_update_status_two ( $_POST["ClientName"] , $_POST["BookTitle"] ) ; 
                     }
-                    if ( $request["status"] == 0 )
+                    if ( $request["Status"] == 0 )
                     {
-                        \Model\Admin\IssueRequests::client_book_update_status_two ( $_POST["clientname"] , $_POST["booktitle"] ) ;
+                        \Model\Admin\IssueRequests::client_book_update_status_two ( $_POST["ClientName"] , $_POST["BookTitle"] ) ;
                     }
                 }
             }

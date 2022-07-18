@@ -5,7 +5,7 @@ class ReturnRequests
     public static function all ()
     {
         $db = \DB::get_instance();
-        $statement = $db->prepare("SELECT * FROM returnrequests ");
+        $statement = $db->prepare("SELECT Title, Username, ReturnDate FROM ReturnRequests ");
         $statement->execute();
         $rows = $statement->fetchAll();
         return $rows;
@@ -13,7 +13,7 @@ class ReturnRequests
     public static function client_book_delete ( $client_name , $book_title )
     {
         $db = \DB::get_instance();
-        $statement = $db->prepare("DELETE FROM returnrequests WHERE username = ? AND title = ? " ) ;
+        $statement = $db->prepare("DELETE FROM ReturnRequests WHERE Username = ? AND Title = ? " ) ;
         $statement->execute([$client_name , $book_title]);
     }
 }

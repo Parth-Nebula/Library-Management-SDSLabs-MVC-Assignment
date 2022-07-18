@@ -10,7 +10,7 @@ class BooksRemovePage {
     }
     public function post() 
     {   
-        $session_status = \Controller\Admin\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\Admin\Session::check() ;
         if ( $session_status )
         {
             $books = \Model\Admin\Books::all() ; 

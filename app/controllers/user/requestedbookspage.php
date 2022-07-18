@@ -10,10 +10,10 @@ class RequestedBooksPage {
     }
     public function post() 
     {   
-        $session_status = \Controller\User\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\User\Session::check() ;
         if ( $session_status )
         {
-            $requests_made = \Model\User\IssueRequests::user_all( $_POST["username"] ) ;
+            $requests_made = \Model\User\IssueRequests::user_all( $_SESSION["Username"] ) ;
             echo \View\Loader::make()->render
             (  
                 "templates/user/Requestedbooks.twig" ,

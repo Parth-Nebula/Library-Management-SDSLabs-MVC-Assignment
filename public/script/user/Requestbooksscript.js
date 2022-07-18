@@ -31,13 +31,13 @@ for (let i = 0 ; i < list_of_books.length ; i++)
     cell3.style = "padding: 1vw; width: 27vw;" ;
     cell4 = row.insertCell(3);
     cell4.style = "padding: 1vw; width: 27vw;" ;
-    cell1.innerHTML = list_of_books[i].title;
-    cell2.innerHTML = list_of_books[i].quantity;
-    cell3.innerHTML = list_of_books[i].quantityavailable;
+    cell1.innerHTML = list_of_books[i].Title;
+    cell2.innerHTML = list_of_books[i].Quantity;
+    cell3.innerHTML = list_of_books[i].QuantityAvailable;
     let check = 0 ;
     for (let j = 0 ; j < list_of_issue_requests.length ; j++)
     {
-        if (list_of_issue_requests[j].username == sessionStorage.getItem("username") && list_of_issue_requests[j].title == list_of_books[i].title)
+        if (list_of_issue_requests[j].Username == sessionStorage.getItem("username") && list_of_issue_requests[j].Title == list_of_books[i].Title)
         {
             check = 1 ;
             break;
@@ -47,7 +47,7 @@ for (let i = 0 ; i < list_of_books.length ; i++)
     {
         for (let j = 0 ; j < list_of_issued_books.length ; j++)
             {
-                if (list_of_issued_books[j].username == sessionStorage.getItem("username") &&  list_of_issued_books[j].title == list_of_books[i].title)
+                if (list_of_issued_books[j].Username == sessionStorage.getItem("username") &&  list_of_issued_books[j].Title == list_of_books[i].Title)
                 {
                     check = 2 ;
                     break;
@@ -64,8 +64,6 @@ for (let i = 0 ; i < list_of_books.length ; i++)
     }
     else
     {
-        cell4.innerHTML = " <form action='/makeARequest' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_books[i].title + "' style='display:none'> <input type='submit' class='requestButton' value='Request'> </form> ";
+        cell4.innerHTML = " <form action='/makeARequest' method='POST'> <input type='text' class='bookTitle' name='BookTitle' value='" + list_of_books[i].Title + "' style='display:none'> <input type='submit' class='requestButton' value='Request'> </form> ";
     }
 }
-document.getElementById("username").defaultValue = sessionStorage.getItem("username");
-document.getElementById("tempPassword").defaultValue = sessionStorage.getItem("tempPassword");

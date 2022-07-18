@@ -10,7 +10,7 @@ class RequestAdminsPage {
     }
     public function post() 
     {   
-        $session_status = \Controller\Admin\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\Admin\Session::check() ;
         if ( $session_status )
         {
             $requests = \Model\Admin\AdminRequests::all_username(); 

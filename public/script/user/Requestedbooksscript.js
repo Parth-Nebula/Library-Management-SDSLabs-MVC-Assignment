@@ -22,25 +22,23 @@ for (let i = 0 ; i < list_of_requests.length ; i++)
     cell2.style = "padding: 1vw; width: 27vw;"
     cell3 = row.insertCell(2);
     cell3.style = "padding: 1vw; width: 27vw;"
-    cell1.innerHTML = list_of_requests[i].title;
-    if (list_of_requests[i].status == 1)
+    cell1.innerHTML = list_of_requests[i].Title;
+    if (list_of_requests[i].Status == 1)
     {
         cell2.innerHTML = "Accepted";
         cell2.style = "color:#b1fc7c";
-        cell3.innerHTML = " <form action='/completeRequest' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_requests[i].title + "' style='display:none'> <input type='text' class='bookStatus' name='bookstatus' value=" + list_of_requests[i].status + " style='display:none'> <input type='submit' class='cancelButton' value='Cancel'> </form> ";
+        cell3.innerHTML = " <form action='/completeRequest' method='POST'> <input type='text' class='bookTitle' name='BookTitle' value='" + list_of_requests[i].Title + "' style='display:none'> <input type='text' class='bookStatus' name='BookStatus' value=" + list_of_requests[i].Status + " style='display:none'> <input type='submit' class='cancelButton' value='Cancel'> </form> ";
     }
-    else if (list_of_requests[i].status == 2)
+    else if (list_of_requests[i].Status == 2)
     {
         cell2.innerHTML = "Denied";
         cell2.style = "color:#f76f6f";
-        cell3.innerHTML = " <form action='/completeRequest' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_requests[i].title + "' style='display:none'> <input type='text' class='bookStatus' name='bookstatus' value=" + list_of_requests[i].status + " style='display:none'> <input type='submit' class='okButton' value='Ok'> </form> ";
+        cell3.innerHTML = " <form action='/completeRequest' method='POST'> <input type='text' class='bookTitle' name='BookTitle' value='" + list_of_requests[i].Title + "' style='display:none'> <input type='text' class='bookStatus' name='BookStatus' value=" + list_of_requests[i].Status + " style='display:none'> <input type='submit' class='okButton' value='Ok'> </form> ";
     }
     else
     {
         cell2.innerHTML = "Pending";
         cell2.style = "color:white";
-        cell3.innerHTML = " <form action='/completeRequest' method='POST'> <input type='text' class='username' name='username' value=" + sessionStorage.getItem("username") + " style='display:none'> <input type='text' class='tempPassword' name='temppassword' value=" + sessionStorage.getItem("tempPassword") + " style='display:none'> <input type='text' class='bookTitle' name='booktitle' value='" + list_of_requests[i].title + "' style='display:none'> <input type='text' class='bookStatus' name='bookstatus' value=" + list_of_requests[i].status + " style='display:none'> <input type='submit' class='cancelButton' value='Cancel'> </form> ";
+        cell3.innerHTML = " <form action='/completeRequest' method='POST'> <input type='text' class='bookTitle' name='BookTitle' value='" + list_of_requests[i].Title + "' style='display:none'> <input type='text' class='bookStatus' name='BookStatus' value=" + list_of_requests[i].Status + " style='display:none'> <input type='submit' class='cancelButton' value='Cancel'> </form> ";
     }   
 }
-document.getElementById("username").defaultValue = sessionStorage.getItem("username");
-document.getElementById("tempPassword").defaultValue = sessionStorage.getItem("tempPassword");

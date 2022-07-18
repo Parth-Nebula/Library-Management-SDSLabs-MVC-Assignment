@@ -4,36 +4,29 @@ class Session
 {
     public static function create ( $username )
     {
-        $some_random_password_number = rand ( 1E+10 , 9E+10 ) ;
-        $some_random_password = (string)$some_random_password_number ;
-        $some_random_salt_number = rand ( 1E+10 , 9E+10 ) ;
-        $some_random_salt = (string)$some_random_salt_number ;
-        $some_random_password_and_some_random_salt = $some_random_password . $some_random_salt ;
-        $some_random_hash = base64_encode ( hash ( "sha256" , $some_random_password_and_some_random_salt , true ) ) ;
-        \Model\User\SessionMaintainer::user_delete( $username ) ;
-        \Model\User\SessionMaintainer::insert( $username , $some_random_hash , $some_random_salt ) ;
-        return $some_random_password ;
-    }
-    public static function check ( $username , $temp_password )
-    {
-        $session_data = \Model\User\SessionMaintainer::user_all( $username ) ;
-        if ( !$session_data )
+        session_start() ;
+        if ( isset( $_SESSION["Username"] ) )
         {
-            return 0 ;
+            session_destroy() ;
+            session_start() ;
         }
-        $temp_password_and_salt = $temp_password . $session_data["salt"] ;
-        $some_random_hash = base64_encode ( hash ( "sha256" , $temp_password_and_salt , true ) ) ;
-        if ( $some_random_hash == $session_data["hashedsaltedtemppassword"] )
+        $_SESSION["Username"] = $username ;
+    }
+    public static function check ()
+    {
+        session_start() ;
+        if ( !isset( $_SESSION["Username"] ) )
         {
-            return 1 ;
+            session_destroy() ;
+            return 0 ;
         }
         else
         {
-            return 0 ;
+            return 1 ;
         }
     }
-    public static function destroy ( $username )
+    public static function destroy ()
     {
-        \Model\User\SessionMaintainer::user_delete( $username ) ;
+        session_destroy() ;
     }
 }

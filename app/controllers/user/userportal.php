@@ -10,7 +10,7 @@ class UserPortal {
     }
     public function post() 
     {   
-        $session_status = \Controller\User\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\User\Session::check() ;
         if ( $session_status )
         {
             echo \View\Loader::make()->render

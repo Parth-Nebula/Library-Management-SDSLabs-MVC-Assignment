@@ -10,10 +10,10 @@ class Logout {
     }
     public function post() 
     {   
-        $session_status = \Controller\Admin\Session::check( $_POST["username"] , $_POST["temppassword"] ) ;
+        $session_status = \Controller\Admin\Session::check() ;
         if ( $session_status )
         {
-            \Controller\Admin\Session::destroy( $_POST["username"] ) ;
+            \Controller\Admin\Session::destroy( $_SESSION["AdminName"] ) ;
             echo \View\Loader::make()->render
             (  
                 "templates/user/Logoutsuccessful.twig" ,

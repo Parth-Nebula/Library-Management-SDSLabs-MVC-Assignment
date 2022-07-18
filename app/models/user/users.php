@@ -5,15 +5,15 @@ class Users
     public static function user_all( $username )
     {
         $db = \DB::get_instance();
-        $stmt = $db->prepare("SELECT * FROM users WHERE username = ? ");
-        $stmt->execute([$username]);
-        $row = $stmt->fetch();
+        $statement = $db->prepare("SELECT Username, HashedSaltedPassword, Salt, Fine FROM Users WHERE Username = ? ");
+        $statement->execute([$username]);
+        $row = $statement->fetch();
         return $row;
     }
     public static function insert ( $username  , $password , $salt )
     {
         $db = \DB::get_instance();
-        $stmt = $db->prepare(" INSERT INTO users (username, hashedsaltedpassword, salt) VALUES ( ? , ? , ? ) ");
-        $stmt->execute( [ $username  , $password , $salt ] ) ;
+        $statement = $db->prepare("INSERT INTO Users ( Username, HashedSaltedPassword, Salt) VALUES ( ? , ? , ? ) ");
+        $statement->execute( [ $username  , $password , $salt ] ) ;
     }
 }
