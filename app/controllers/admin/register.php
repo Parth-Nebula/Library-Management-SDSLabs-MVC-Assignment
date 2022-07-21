@@ -49,7 +49,7 @@ class Register
                 
                 echo \View\Loader::make()->render
                 (  
-                "templates/admin/notAcceptedyet.twig" ,
+                "templates/admin/Registrationfailed.twig" ,
                 );
                 
             }
