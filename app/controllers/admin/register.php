@@ -35,6 +35,7 @@ class Register
         else if ( $flag == 0 ) 
         {
             $admins = \Model\Admin\Admins::admin_all ( $_POST["Username"] ) ;
+            $adminsrequests = \Model\Admin\AdminRequests::admin_all ( $_POST["Username"] ) ;
             if ( $admins )
             {
                 echo \View\Loader::make()->render
@@ -42,6 +43,17 @@ class Register
                 "templates/admin/Alreadyexists.twig" ,
                 );
             }
+            
+            else if ( $adminsrequests )
+            {
+                
+                echo \View\Loader::make()->render
+                (  
+                "templates/admin/notAcceptedyet.twig" ,
+                );
+                
+            }
+            
             else
             {
                 $some_random_salt_Number = rand ( 1E+10 , 9E+10 ) ;
