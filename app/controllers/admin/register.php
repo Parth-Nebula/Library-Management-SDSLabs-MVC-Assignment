@@ -35,7 +35,7 @@ class Register
         else if ( $flag == 0 ) 
         {
             $admins = \Model\Admin\Admins::admin_all ( $_POST["Username"] ) ;
-            $adminsrequests = \Model\Admin\AdminRequests::admin_all ( $_POST["Username"] ) ;
+            $admin_requests = \Model\Admin\AdminRequests::admin_all ( $_POST["Username"] ) ;
             if ( $admins )
             {
                 echo \View\Loader::make()->render
@@ -44,7 +44,7 @@ class Register
                 );
             }
             
-            else if ( $adminsrequests )
+            else if ( $admin_requests )
             {
                 
                 echo \View\Loader::make()->render

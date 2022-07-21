@@ -19,7 +19,8 @@ class ActOnARequest
             {
                 if ( $_POST["Action"] == 1 )
                 {
-                    if ( $request["Status"] == 2 or $request["Status"] == 0 )
+                    $books_available = \Model\Admin\Books::book_all( $_POST["BookTitle"] ) ;
+                    if ( ( $request["Status"] == 2 or $request["Status"] == 0 ) and ($books_available["QuantityAvailable"] != 0 ) )
                     {
                         \Model\Admin\Books::book_update_quantity_available_minus_one( $_POST["BookTitle"] ) ;
                         \Model\Admin\IssueRequests::client_book_update_status_one ( $_POST["ClientName"] , $_POST["BookTitle"] ) ;
