@@ -13,10 +13,8 @@ class RemoveBooks {
         $session_status = \Controller\Admin\Session::check() ;
         if ( $session_status )
         {   
-            if ( is_numeric($_POST["QuantityFilled"]) )
+            if ( is_numeric($_POST["QuantityFilled"]) and  (int)$_POST["QuantityFilled"] >= 0 ) 
             {
-                if ( (int)$_POST["QuantityFilled"] >= 0 )
-                {
                     $book = \Model\Admin\Books::book_all ( $_POST["BookTitle"] ) ;
                     if ( $book["QuantityAvailable"] >= $_POST["QuantityFilled"]  and  $book["Quantity"] > $_POST["QuantityFilled"] )
                     {
@@ -33,11 +31,6 @@ class RemoveBooks {
                     {
                         $success_status = "Removal Failed" ;
                     }
-                }
-                else
-                {
-                    $success_status = "Removal Failed" ;
-                }
             }
             else
             {

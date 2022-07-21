@@ -14,17 +14,24 @@ class AddBooks {
         $success_status = "" ;
         if ( $session_status )
         {
-            $book = \Model\Admin\Books::book_all ( $_POST["BookTitle"] ) ;
-            if ( $book )
+            if ( is_numeric($_POST["Quantity"]) and  (int)$_POST["Quantity"] >= 0 ) 
             {
-                \Model\Admin\Books::book_update_quantity ( $_POST["BookTitle"] , $_POST["Quantity"] ) ;
-                \Model\Admin\Books::book_update_quantity_available ( $_POST["BookTitle"] , $_POST["Quantity"] ) ;
-                $success_status = "Successfully Added" ;
+                $book = \Model\Admin\Books::book_all ( $_POST["BookTitle"] ) ;
+                if ( $book )
+                {
+                    \Model\Admin\Books::book_update_quantity ( $_POST["BookTitle"] , $_POST["Quantity"] ) ;
+                    \Model\Admin\Books::book_update_quantity_available ( $_POST["BookTitle"] , $_POST["Quantity"] ) ;
+                    $success_status = "Successfully Added" ;
+                }
+                else
+                {
+                    \Model\Admin\Books::insert ( $_POST["BookTitle"] , $_POST["Quantity"] ) ;
+                    $success_status = "Successfully Added" ;
+                }
             }
             else
             {
-                \Model\Admin\Books::insert ( $_POST["BookTitle"] , $_POST["Quantity"] ) ;
-                $success_status = "Successfully Added" ;
+                $success_status="Addition Failed" ;
             }
             echo \View\Loader::make()->render
             (  
