@@ -31,5 +31,5 @@ for (let i = 0 ; i < list_of_books.length ; i++)
     cell1.innerHTML = list_of_books[i].Title;
     cell2.innerHTML = list_of_books[i].Quantity;
     cell3.innerHTML = list_of_books[i].QuantityAvailable;
-    cell4.innerHTML = "  <form action='/removeABook' method='POST'> <div class='lineBox'> <input type='text' class='bookTitle' name='BookTitle' value='" + list_of_books[i].Title + "' style='display:none'> <input type='text' class='quantBox' name=QuantityFilled> <input type='submit' class='removeButton' value='Remove'> </div> </form>  ";
+    cell4.innerHTML = "  <form action='/removeABook' method='POST'> <div class='lineBox'> <input type='text' class='bookTitle' name='BookTitle' value='" + list_of_books[i].Title + "' style='display:none'> <input type='text' class='quantBox' placeholder ='Amnt' name=QuantityFilled> <input type='submit' class='removeButton' value='Remove'> </div> </form>  ";
 }

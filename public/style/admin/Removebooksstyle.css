@@ -38,6 +38,16 @@ body
 {
     outline: 0.16vw solid #A8F9FE;
 }
+.resultBar
+{
+    position: absolute;
+    top: 1vw;
+    left: 45vw;
+    font-family: 'Roboto', sans-serif ;
+    font-weight: 700;
+    color: #ffffff ;
+    font-size: 1.5vw ;
+}
 .backButton
 {
     position: absolute;

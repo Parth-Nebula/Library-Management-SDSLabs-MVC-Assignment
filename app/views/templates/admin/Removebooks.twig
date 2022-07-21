@@ -9,13 +9,16 @@
 {% endblock %}
 {% block body %}
 	{{- parent() -}}
-        <div id="tableDiv">
-            <table id="booksTable">
-            </table>
-        </div>
-        <form class="back" action="/goToAdminPortal" method="POST" >
-            <input type="submit" class="backButton" value="Back">
-        </form>
+    <div id="tableDiv">
+        <table id="booksTable">
+        </table>
+    </div>
+    <div class="resultBar">
+    {{ data }}
+    </div>
+    <form class="back" action="/goToAdminPortal" method="POST" >
+        <input type="submit" class="backButton" value="Back">
+    </form>
 {% endblock %}
 {% block bottom %}
 	{{- parent() -}}
