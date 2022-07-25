@@ -14,15 +14,43 @@ else
     composer dump-autoload -o
     
 	$SQLUSERNAME
-    $SQLPASSWORD
     
     echo 'Enter Details for mysql login'
     
 	echo 'Enter Username:'
+    
 	read SQLUSERNAME
     
 	echo 'Enter Password:'
-	read SQLPASSWORD
+    
+	stty -echo #TAKING INPUT OF PASSWORD
+
+    CHARCOUNT=0
+    while IFS= read -p "$PROMPT" -r -s -n 1 CHAR
+    do
+        # Enter - accept password
+        if [[ $CHAR == $'\0' ]] ; then
+            break
+        fi
+        # Backspace
+        if [[ $CHAR == $'\177' ]] ; then
+            if [ $CHARCOUNT -gt 0 ] ; then
+                CHARCOUNT=$((CHARCOUNT-1))
+                PROMPT=$'\b \b'
+                SQLPASSWORD="${SQLPASSWORD%?}"
+            else
+                PROMPT=''
+            fi
+        else
+            CHARCOUNT=$((CHARCOUNT+1))
+            PROMPT='*'
+            SQLPASSWORD+="$CHAR"
+        fi
+    done
+
+    stty echo #TAKING INPUT OF PASSWORD END
+    
+    echo
     
     mysql -u$SQLUSERNAME -p$SQLPASSWORD -e "create database lib ;"
         
