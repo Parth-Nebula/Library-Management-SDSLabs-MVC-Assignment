@@ -52,9 +52,9 @@ else
     
     echo
     
-    mysql -u$SQLUSERNAME -p$SQLPASSWORD -e "create database lib ;"
+    MYSQL_PWD=$SQLPASSWORD mysql -u$SQLUSERNAME -e "create database lib ;"
         
-    mysql -u$SQLUSERNAME -p$SQLPASSWORD "lib"<schema/schema.sql
+    MYSQL_PWD=$SQLPASSWORD mysql -u$SQLUSERNAME "lib"<schema/schema.sql
     
     touch config/config.php
 
